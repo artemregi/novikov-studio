@@ -35,18 +35,18 @@
 
     /* Hero — keep 2-column on mobile, scale down */
     .hero-pt { height: 100vh !important; padding-top: 52px !important; flex-direction: row !important; }
-    .hero-left { padding: 16px 10px 16px 14px !important; justify-content: space-between !important; flex: 1 1 50% !important; }
-    .hero-h1 { font-size: 15px !important; letter-spacing: -0.5px !important; margin-bottom: 0 !important; line-height: 1.2 !important; }
+    .hero-left { padding: 20px 12px 20px 16px !important; justify-content: center !important; gap: 14px !important; flex: 1 1 50% !important; }
+    .hero-h1 { font-size: 15px !important; letter-spacing: -0.5px !important; margin-bottom: 0 !important; line-height: 1.25 !important; }
     .hero-card-badge { display: none !important; }
-    .hero-p { font-size: 10px !important; line-height: 1.5 !important; margin-bottom: 0 !important; max-width: none !important; }
-    .hero-cta { padding: 9px 12px !important; font-size: 10px !important; gap: 5px !important; }
+    .hero-p { font-size: 10px !important; line-height: 1.6 !important; margin-bottom: 0 !important; max-width: none !important; }
+    .hero-cta { padding: 10px 14px !important; font-size: 10px !important; gap: 5px !important; border-radius: 30px !important; }
     .hero-cta svg { width: 11px !important; height: 11px !important; }
 
-    /* Phone area on mobile — stays on right, as tall as possible */
+    /* Phone area on mobile — width-based sizing preserves aspect ratio */
     .phone-blob { display: none !important; }
-    .hero-phone-wrap { padding: 8px 6px 8px 4px !important; align-items: center !important; }
-    .phone-shell { height: calc(100vh - 70px) !important; width: auto !important; max-width: calc(50vw - 16px) !important; border-radius: 30px !important; }
-    .phone-inner { border-radius: 28px !important; }
+    .hero-phone-wrap { padding: 10px 8px 10px 4px !important; align-items: center !important; }
+    .phone-shell { width: calc(50vw - 22px) !important; height: auto !important; border-radius: 28px !important; box-shadow: 0 20px 60px rgba(0,0,0,0.25) !important; }
+    .phone-inner { border-radius: 26px !important; }
     .float-qr { display: none !important; }
     .float-card1, .float-card2 { display: none !important; }
 
