@@ -16,82 +16,174 @@
   @keyframes floatB { 0%,100%{transform:translateY(0) rotate(4deg)} 50%{transform:translateY(-8px) rotate(4deg)} }
   @keyframes floatC { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-12px) rotate(-2deg)} }
 
-  input:focus {
-    border-color: #FF6B2C !important;
-    outline: none !important;
-    background: #fff !important;
-  }
+  input:focus { border-color: #FF6B2C !important; outline: none !important; background: #fff !important; }
 
-  .faq-answer {
-    display: none;
-    padding: 0 0 20px;
-    font-size: 14px;
-    line-height: 1.8;
-    color: rgba(26,23,20,0.58);
-  }
-  .faq-answer.open { display: block; }
+  .faq-answer { display:none; padding:0 0 20px; font-size:14px; line-height:1.8; color:rgba(26,23,20,0.58); }
+  .faq-answer.open { display:block; }
+  .faq-icon-plus { display:block; }
+  .faq-icon-minus { display:none; }
+  .faq-item.open .faq-icon-plus { display:none; }
+  .faq-item.open .faq-icon-minus { display:block; }
 
-  .faq-icon-plus { display: block; }
-  .faq-icon-minus { display: none; }
-  .faq-item.open .faq-icon-plus { display: none; }
-  .faq-item.open .faq-icon-minus { display: block; }
+  /* ── Layout classes ── */
+  .nav-inner { max-width:1280px; margin:0 auto; padding:0 40px; height:68px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .nav-links { display:flex; gap:36px; align-items:center; }
+  .nav-cta-full { display:inline-flex; }
+  .nav-cta-short { display:none; }
+
+  .hero-section { background:#EDEBE7; padding-top:68px; }
+  .hero-grid { max-width:1280px; margin:0 auto; width:100%; padding:60px 40px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .hero-phone { position:relative; display:flex; justify-content:center; align-items:center; height:560px; min-width:0; }
+
+  .clients-section { background:#fff; padding:32px 40px; border-top:1px solid rgba(26,23,20,0.08); border-bottom:1px solid rgba(26,23,20,0.08); }
+  .clients-inner { max-width:1280px; margin:0 auto; display:flex; gap:40px; align-items:center; flex-wrap:wrap; }
+  .clients-logos { display:flex; gap:40px; align-items:center; flex-wrap:wrap; flex:1; }
+
+  .section-pad { padding:80px 40px; }
+  .section-inner { max-width:1280px; margin:0 auto; }
+
+  .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+
+  .scenarios-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+  .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+  .adv-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:20px; }
+  .adv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+
+  .contact-grid { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+
+  .footer-inner { max-width:1280px; margin:0 auto; }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:36px; }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .nav-inner { padding:0 20px; height:52px; }
+    .nav-links { display:none; }
+    .nav-cta-full { display:none; }
+    .nav-cta-short { display:inline-flex; background:#FF6B2C; color:#fff; padding:8px 16px; border-radius:50px; font-weight:700; font-size:12px; text-decoration:none; }
+    .nav-fixed { position:sticky; }
+
+    .hero-section { padding-top:0; }
+    .hero-grid { grid-template-columns:1fr; gap:0; padding:28px 20px 0; }
+    .hero-phone { height:auto; margin-top:24px; padding-bottom:24px; }
+    .hero-phone .float-qr { left:4px; top:20px; padding:10px; border-radius:14px; }
+    .hero-phone .float-qr svg { width:44px; height:44px; }
+    .hero-phone .float-qr .scan-label { font-size:8px; margin-top:4px; }
+    .hero-phone .float-card1 { display:none; }
+    .hero-phone .float-card2 { display:none; }
+    .hero-phone .phone-bg { width:280px; height:280px; border-radius:36px; }
+    .hero-phone .phone-device { width:170px; height:340px; border-radius:28px; }
+    .hero-phone .phone-device-inner { border-radius:26px; }
+    .hero-phone .phone-hero-img { height:76px; }
+    .hero-phone .phone-items { gap:5px; }
+    .hero-phone .phone-item-img { width:32px; height:32px; border-radius:6px; }
+    .hero-phone .phone-item-plus { width:16px; height:16px; border-radius:4px; font-size:12px; }
+    .hero-card-preview { display:none; }
+
+    .clients-section { padding:16px 20px; }
+    .clients-inner { gap:10px; flex-direction:column; align-items:flex-start; }
+    .clients-logos { gap:16px; }
+    .clients-logos span { font-size:13px; }
+
+    .section-pad { padding:32px 20px; }
+
+    .how-grid { grid-template-columns:1fr; gap:12px; }
+    .how-card { display:flex !important; align-items:center; gap:16px; border-radius:18px !important; padding:20px !important; }
+    .how-card .how-num { position:static !important; font-size:10px !important; font-weight:700; color:#FF6B2C; letter-spacing:1px; margin-bottom:4px; }
+    .how-card .how-num-bg { display:none; }
+    .how-card-icon { margin-bottom:0 !important; flex-shrink:0; }
+    .how-card-body { flex:1; }
+
+    .scenarios-grid { grid-template-columns:1fr; gap:32px; }
+    .stat-grid { gap:12px; }
+
+    .adv-header { margin-bottom:20px; }
+    .adv-header a { width:100%; text-align:center; }
+    .adv-grid { grid-template-columns:1fr 1fr; }
+    .adv-grid > div:nth-child(1),
+    .adv-grid > div:nth-child(2),
+    .adv-grid > div:nth-child(3) { grid-column:span 1; }
+    .adv-grid > div:nth-child(1) img,
+    .adv-grid > div:nth-child(2) img,
+    .adv-grid > div:nth-child(3) img { height:80px; }
+    .adv-grid > div:nth-child(1) .adv-pad,
+    .adv-grid > div:nth-child(2) .adv-pad,
+    .adv-grid > div:nth-child(3) .adv-pad { padding:12px; }
+    .adv-grid > div:nth-child(3) { grid-column:span 2; }
+
+    .testimonial-pad { padding:32px 20px; }
+    .testimonial-big { font-size:52px !important; letter-spacing:-2px; margin-bottom:16px !important; }
+    .testimonial-quote { font-size:14px !important; }
+
+    .faq-section-pad { padding:32px 20px; }
+    .faq-section-inner { max-width:none; }
+    .faq-section-header { margin-bottom:20px; text-align:left; }
+
+    .contact-section-pad { padding:32px 20px; }
+    .contact-grid { grid-template-columns:1fr; gap:24px; }
+
+    .footer-pad { padding:24px 20px 32px; }
+    .footer-grid { grid-template-columns:1fr; gap:24px; margin-bottom:20px; }
+    .footer-cols { display:flex; gap:32px; flex-wrap:wrap; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav style="position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(237,235,231,0.95); backdrop-filter:blur(20px);">
-  <div style="max-width:1280px; margin:0 auto; padding:0 40px; height:68px; display:flex; align-items:center; justify-content:space-between; gap:24px">
+<nav class="nav-fixed" style="position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(237,235,231,0.95); backdrop-filter:blur(20px);">
+  <div class="nav-inner">
     <a href="#" style="display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0">
       <div style="width:36px; height:36px; background:#FF6B2C; border-radius:8px; display:flex; align-items:center; justify-content:center">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L3 3L17 17L17 3" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <span style="font-size:18px; font-weight:800; color:#1A1714; letter-spacing:-0.5px">novikov</span>
     </a>
-    <div style="display:flex; gap:36px; align-items:center">
+    <div class="nav-links">
       <a href="#how" style="color:rgba(26,23,20,0.5); text-decoration:none; font-size:14px; font-weight:600">Как работает</a>
       <a href="#scenarios" style="color:rgba(26,23,20,0.5); text-decoration:none; font-size:14px; font-weight:600">Сценарии</a>
       <a href="#prem" style="color:rgba(26,23,20,0.5); text-decoration:none; font-size:14px; font-weight:600">Преимущества</a>
       <a href="#faq" style="color:rgba(26,23,20,0.5); text-decoration:none; font-size:14px; font-weight:600">FAQ</a>
     </div>
     <div style="display:flex; gap:8px; align-items:center">
-      <a href="#contact" style="background:#FF6B2C; color:#fff; padding:11px 22px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; display:flex; align-items:center; gap:8px">
+      <a href="#contact" class="nav-cta-full" style="background:#FF6B2C; color:#fff; padding:11px 22px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; align-items:center; gap:8px">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M1 6l7 4 7-4" stroke="#fff" stroke-width="1.5"/></svg>
         Оставить заявку
       </a>
+      <a href="#contact" class="nav-cta-short">Заявка</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section style="background:#EDEBE7; padding-top:68px;">
-  <div style="max-width:1280px; margin:0 auto; width:100%; padding:60px 40px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+<section class="hero-section">
+  <div class="hero-grid">
     <!-- LEFT TEXT -->
     <div style="min-width:0;">
-      <h1 style="font-size:clamp(36px,4.5vw,64px); font-weight:800; line-height:1.08; letter-spacing:-1.5px; color:#1A1714; margin-bottom:20px;">
+      <h1 style="font-size:clamp(32px,4.5vw,64px); font-weight:800; line-height:1.08; letter-spacing:-1.5px; color:#1A1714; margin-bottom:20px;">
         QR-меню для вашего ресторана<br><span style="color:#FF6B2C;">за 2 часа</span>
       </h1>
-      <div style="display:inline-flex; align-items:center; gap:10px; background:#fff; border-radius:16px; padding:10px 14px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+      <div class="hero-card-preview" style="display:inline-flex; align-items:center; gap:10px; background:#fff; border-radius:16px; padding:10px 14px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=48&h=48&fit=crop&auto=format" style="width:36px; height:36px; border-radius:10px; object-fit:cover;" alt="блюдо">
         <div>
           <div style="font-size:12px; font-weight:700; color:#1A1714; line-height:1.3;">Том ям с креветками</div>
           <div style="font-size:11px; color:rgba(26,23,20,0.45); line-height:1.4;">⭐ 4.8 · 1 490 ₸</div>
         </div>
       </div>
-      <p style="font-size:17px; line-height:1.7; color:rgba(26,23,20,0.58); margin-bottom:32px; max-width:44ch;">
+      <p style="font-size:clamp(14px,1.2vw,17px); line-height:1.7; color:rgba(26,23,20,0.58); margin-bottom:32px; max-width:44ch;">
         Оставьте заявку — мы разработаем онлайн-меню для вашего бара, кафе или ресторана. Гости сканируют и заказывают без приложений.
       </p>
-      <a href="#contact" style="display:inline-flex; align-items:center; gap:10px; background:#FF6B2C; color:#fff; padding:18px 36px; border-radius:50px; font-weight:700; font-size:16px; text-decoration:none; box-shadow:0 8px 30px rgba(255,107,44,0.35);">
+      <a href="#contact" style="display:inline-flex; align-items:center; gap:10px; background:#FF6B2C; color:#fff; padding:15px 28px; border-radius:50px; font-weight:700; font-size:clamp(14px,1.1vw,16px); text-decoration:none; box-shadow:0 8px 30px rgba(255,107,44,0.35);">
         Получить меню за 2 часа
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
 
     <!-- RIGHT PHONE MOCKUP -->
-    <div style="position:relative; display:flex; justify-content:center; align-items:center; height:560px; min-width:0;">
-      <div style="position:absolute; width:380px; height:380px; background:#FFD4B8; border-radius:44px; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
-      <div style="position:relative; z-index:2; width:240px; height:490px; background:#1A1714; border-radius:36px; padding:3px; box-shadow:0 30px 80px rgba(0,0,0,0.3);">
-        <div style="width:100%; height:100%; background:#fff; border-radius:34px; overflow:hidden;">
+    <div class="hero-phone">
+      <div class="phone-bg" style="position:absolute; width:380px; height:380px; background:#FFD4B8; border-radius:44px; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+      <div class="phone-device" style="position:relative; z-index:2; width:240px; height:490px; background:#1A1714; border-radius:36px; padding:3px; box-shadow:0 30px 80px rgba(0,0,0,0.3);">
+        <div class="phone-device-inner" style="width:100%; height:100%; background:#fff; border-radius:34px; overflow:hidden;">
           <div style="background:#fff; padding:12px 20px 6px; display:flex; justify-content:space-between; align-items:center;">
             <span style="font-size:11px; font-weight:700; color:#1A1714;">16:05</span>
             <div style="width:80px; height:12px; background:#1A1714; border-radius:6px;"></div>
@@ -100,7 +192,7 @@
           <div style="padding:8px 16px 10px; border-bottom:1px solid #f0f0f0;">
             <div style="font-size:13px; font-weight:800; color:#1A1714; text-align:center;">Pizza House</div>
           </div>
-          <div style="height:110px; overflow:hidden; position:relative;">
+          <div class="phone-hero-img" style="height:110px; overflow:hidden; position:relative;">
             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=220&fit=crop&auto=format" style="width:100%; height:100%; object-fit:cover;" alt="пицца">
             <div style="position:absolute; bottom:8px; left:10px; background:#FF6B2C; color:#fff; font-size:9px; font-weight:700; padding:3px 8px; border-radius:4px;">NEW</div>
           </div>
@@ -112,26 +204,26 @@
               <div style="background:#f2f2f2; color:#666; font-size:9px; font-weight:600; padding:4px 10px; border-radius:20px; white-space:nowrap;">Соусы</div>
             </div>
           </div>
-          <div style="padding:6px 16px; display:flex; flex-direction:column; gap:8px;">
+          <div class="phone-items" style="padding:6px 16px; display:flex; flex-direction:column; gap:8px;">
             <div style="display:flex; align-items:center; gap:10px; background:#fafafa; border-radius:12px; padding:8px;">
-              <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=60&h=60&fit=crop&auto=format" style="width:44px; height:44px; border-radius:8px; object-fit:cover;" alt="">
+              <img class="phone-item-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=60&h=60&fit=crop&auto=format" style="width:44px; height:44px; border-radius:8px; object-fit:cover;" alt="">
               <div style="flex:1; min-width:0;">
                 <div style="font-size:10px; font-weight:700; color:#1A1714;">Четыре сыра</div>
                 <div style="font-size:9px; color:rgba(26,23,20,0.45);">Моцарелла, чеддер</div>
                 <div style="font-size:10px; font-weight:800; color:#FF6B2C; margin-top:2px;">1 290 ₸</div>
               </div>
-              <div style="width:22px; height:22px; background:#FF6B2C; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <div class="phone-item-plus" style="width:22px; height:22px; background:#FF6B2C; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                 <span style="color:#fff; font-size:16px; line-height:1;">+</span>
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:10px; background:#fafafa; border-radius:12px; padding:8px;">
-              <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=60&h=60&fit=crop&auto=format" style="width:44px; height:44px; border-radius:8px; object-fit:cover;" alt="">
+              <img class="phone-item-img" src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=60&h=60&fit=crop&auto=format" style="width:44px; height:44px; border-radius:8px; object-fit:cover;" alt="">
               <div style="flex:1; min-width:0;">
                 <div style="font-size:10px; font-weight:700; color:#1A1714;">Пепперони</div>
                 <div style="font-size:9px; color:rgba(26,23,20,0.45);">Салями, томат</div>
                 <div style="font-size:10px; font-weight:800; color:#FF6B2C; margin-top:2px;">1 490 ₸</div>
               </div>
-              <div style="width:22px; height:22px; background:#f0f0f0; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <div class="phone-item-plus" style="width:22px; height:22px; background:#f0f0f0; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                 <span style="color:#999; font-size:16px; line-height:1;">+</span>
               </div>
             </div>
@@ -139,17 +231,17 @@
         </div>
       </div>
       <!-- Floating QR -->
-      <div style="position:absolute; left:-20px; top:80px; background:#fff; border-radius:20px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatA 4s ease-in-out infinite; z-index:3;">
+      <div class="float-qr" style="position:absolute; left:-20px; top:80px; background:#fff; border-radius:20px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatA 4s ease-in-out infinite; z-index:3;">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="display:block;">
           <rect x="4" y="4" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="8" y="8" width="16" height="16" rx="1" fill="#fff"/><rect x="11" y="11" width="10" height="10" rx="1" fill="#FF6B2C"/>
           <rect x="36" y="4" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="40" y="8" width="16" height="16" rx="1" fill="#fff"/><rect x="43" y="11" width="10" height="10" rx="1" fill="#FF6B2C"/>
           <rect x="4" y="36" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="8" y="40" width="16" height="16" rx="1" fill="#fff"/><rect x="11" y="43" width="10" height="10" rx="1" fill="#FF6B2C"/>
           <rect x="36" y="36" width="8" height="8" fill="#FF6B2C"/><rect x="48" y="36" width="8" height="8" fill="#FF6B2C"/><rect x="36" y="48" width="8" height="8" fill="#FF6B2C"/><rect x="48" y="48" width="8" height="8" fill="#1A1714"/>
         </svg>
-        <div style="font-size:10px; font-weight:700; color:#1A1714; text-align:center; margin-top:8px;">Сканируй</div>
+        <div class="scan-label" style="font-size:10px; font-weight:700; color:#1A1714; text-align:center; margin-top:8px;">Сканируй</div>
       </div>
       <!-- Floating card 1 -->
-      <div style="position:absolute; right:-20px; top:90px; background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatB 3.5s ease-in-out infinite; z-index:3; width:155px;">
+      <div class="float-card1" style="position:absolute; right:-20px; top:90px; background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatB 3.5s ease-in-out infinite; z-index:3; width:155px;">
         <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=100&fit=crop&auto=format" style="width:100%; height:70px; object-fit:cover; border-radius:10px; display:block; margin-bottom:8px;" alt="">
         <div style="font-size:11px; font-weight:700; color:#1A1714;">Греческий салат</div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
@@ -158,7 +250,7 @@
         </div>
       </div>
       <!-- Floating card 2 -->
-      <div style="position:absolute; right:-10px; bottom:90px; background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatC 5s ease-in-out infinite; z-index:3; width:145px;">
+      <div class="float-card2" style="position:absolute; right:-10px; bottom:90px; background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatC 5s ease-in-out infinite; z-index:3; width:145px;">
         <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=100&fit=crop&auto=format" style="width:100%; height:62px; object-fit:cover; border-radius:10px; display:block; margin-bottom:8px;" alt="">
         <div style="font-size:11px; font-weight:700; color:#1A1714;">Pancakes</div>
         <span style="font-size:11px; font-weight:800; color:#FF6B2C;">650 ₸</span>
@@ -168,10 +260,10 @@
 </section>
 
 <!-- CLIENTS -->
-<section style="background:#fff; padding:32px 40px; border-top:1px solid rgba(26,23,20,0.08); border-bottom:1px solid rgba(26,23,20,0.08);">
-  <div style="max-width:1280px; margin:0 auto; display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
+<section class="clients-section">
+  <div class="clients-inner">
     <span style="font-size:13px; font-weight:600; color:rgba(26,23,20,0.35); white-space:nowrap;">Наши клиенты:</span>
-    <div style="display:flex; gap:40px; align-items:center; flex-wrap:wrap; flex:1;">
+    <div class="clients-logos">
       <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">Crêpe Café</span>
       <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">ЭКБОТА</span>
       <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">Pizza Hub</span>
@@ -184,120 +276,131 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how" style="background:#EDEBE7; padding:80px 40px;">
-  <div style="max-width:1280px; margin:0 auto;">
+<section id="how" class="section-pad" style="background:#EDEBE7;">
+  <div class="section-inner">
     <div style="text-align:center; margin-bottom:52px;">
       <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:16px;">КАК РАБОТАЕТ</div>
-      <h2 style="font-size:clamp(32px,4vw,52px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">3 простых шага</h2>
+      <h2 style="font-size:clamp(26px,4vw,52px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">3 простых шага</h2>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
-      <div style="background:#fff; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
-        <div style="font-size:72px; font-weight:800; color:rgba(255,107,44,0.08); position:absolute; top:16px; right:20px; line-height:1;">01</div>
-        <div style="width:48px; height:48px; background:#FFE8D8; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+    <div class="how-grid">
+      <div class="how-card" style="background:#fff; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
+        <div class="how-num-bg" style="font-size:72px; font-weight:800; color:rgba(255,107,44,0.08); position:absolute; top:16px; right:20px; line-height:1;">01</div>
+        <div class="how-card-icon" style="width:48px; height:48px; background:#FFE8D8; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; flex-shrink:0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="8" height="8" rx="1.5" stroke="#FF6B2C" stroke-width="2"/><rect x="14" y="2" width="8" height="8" rx="1.5" stroke="#FF6B2C" stroke-width="2"/><rect x="2" y="14" width="8" height="8" rx="1.5" stroke="#FF6B2C" stroke-width="2"/><rect x="16" y="16" width="4" height="4" fill="#FF6B2C" rx="1"/></svg>
         </div>
-        <h3 style="font-size:19px; font-weight:800; color:#1A1714; margin-bottom:10px;">Сканирование QR</h3>
-        <p style="font-size:14px; line-height:1.7; color:rgba(26,23,20,0.55);">Гость сканирует QR-код камерой — без загрузки приложений. Один клик, и меню открыто.</p>
+        <div class="how-card-body">
+          <div class="how-num" style="display:none;">01</div>
+          <h3 style="font-size:19px; font-weight:800; color:#1A1714; margin-bottom:10px;">Сканирование QR</h3>
+          <p style="font-size:14px; line-height:1.7; color:rgba(26,23,20,0.55);">Гость сканирует QR-код камерой — без загрузки приложений. Один клик, и меню открыто.</p>
+        </div>
       </div>
-      <div style="background:#FF6B2C; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
-        <div style="font-size:72px; font-weight:800; color:rgba(255,255,255,0.12); position:absolute; top:16px; right:20px; line-height:1;">02</div>
-        <div style="width:48px; height:48px; background:rgba(255,255,255,0.2); border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+      <div class="how-card" style="background:#FF6B2C; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
+        <div class="how-num-bg" style="font-size:72px; font-weight:800; color:rgba(255,255,255,0.12); position:absolute; top:16px; right:20px; line-height:1;">02</div>
+        <div class="how-card-icon" style="width:48px; height:48px; background:rgba(255,255,255,0.2); border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; flex-shrink:0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="3" stroke="#fff" stroke-width="2"/><path d="M7 10h10M7 14h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M2 7h20" stroke="#fff" stroke-width="2"/></svg>
         </div>
-        <h3 style="font-size:19px; font-weight:800; color:#fff; margin-bottom:10px;">Онлайн-меню</h3>
-        <p style="font-size:14px; line-height:1.7; color:rgba(255,255,255,0.75);">Аппетитные фото блюд, описания и цены. Удобная навигация по категориям.</p>
+        <div class="how-card-body">
+          <div class="how-num" style="display:none; color:rgba(255,255,255,0.6);">02</div>
+          <h3 style="font-size:19px; font-weight:800; color:#fff; margin-bottom:10px;">Онлайн-меню</h3>
+          <p style="font-size:14px; line-height:1.7; color:rgba(255,255,255,0.75);">Аппетитные фото блюд, описания и цены. Удобная навигация по категориям.</p>
+        </div>
       </div>
-      <div style="background:#fff; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
-        <div style="font-size:72px; font-weight:800; color:rgba(255,107,44,0.08); position:absolute; top:16px; right:20px; line-height:1;">03</div>
-        <div style="width:48px; height:48px; background:#FFE8D8; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+      <div class="how-card" style="background:#fff; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
+        <div class="how-num-bg" style="font-size:72px; font-weight:800; color:rgba(255,107,44,0.08); position:absolute; top:16px; right:20px; line-height:1;">03</div>
+        <div class="how-card-icon" style="width:48px; height:48px; background:#FFE8D8; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; flex-shrink:0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="14" height="16" rx="2" stroke="#FF6B2C" stroke-width="2"/><path d="M18 9l4 4-4 4" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10h6M6 14h4" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
-        <h3 style="font-size:19px; font-weight:800; color:#1A1714; margin-bottom:10px;">Заказ и оплата</h3>
-        <p style="font-size:14px; line-height:1.7; color:rgba(26,23,20,0.55);">Гость выбирает блюда и оплачивает онлайн. Деньги мгновенно поступают на счёт.</p>
+        <div class="how-card-body">
+          <div class="how-num" style="display:none;">03</div>
+          <h3 style="font-size:19px; font-weight:800; color:#1A1714; margin-bottom:10px;">Заказ и оплата</h3>
+          <p style="font-size:14px; line-height:1.7; color:rgba(26,23,20,0.55);">Гость выбирает блюда и оплачивает онлайн. Деньги мгновенно поступают на счёт.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SCENARIOS -->
-<section id="scenarios" style="background:#fff; padding:80px 40px;">
-  <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;">
-    <div>
-      <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:18px;">СЦЕНАРИИ</div>
-      <h2 style="font-size:clamp(26px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1; margin-bottom:16px;">Для кого подходит</h2>
-      <p style="font-size:16px; line-height:1.7; color:rgba(26,23,20,0.55); margin-bottom:28px;">Novikov Studio создаёт меню для любого формата заведения.</p>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
-          <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15V9a6 6 0 0112 0v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M1 15h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+<section id="scenarios" class="section-pad" style="background:#fff;">
+  <div class="section-inner">
+    <div class="scenarios-grid">
+      <div>
+        <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:18px;">СЦЕНАРИИ</div>
+        <h2 style="font-size:clamp(24px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1; margin-bottom:16px;">Для кого подходит</h2>
+        <p style="font-size:16px; line-height:1.7; color:rgba(26,23,20,0.55); margin-bottom:28px;">Novikov Studio создаёт меню для любого формата заведения.</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
+            <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15V9a6 6 0 0112 0v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M1 15h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Рестораны и кафе</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Полное меню с категориями и фото</div></div>
           </div>
-          <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Рестораны и кафе</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Полное меню с категориями и фото</div></div>
-        </div>
-        <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
-          <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="2"/><path d="M6 5V4a3 3 0 016 0v1" stroke="#fff" stroke-width="2"/></svg>
+          <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
+            <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="2"/><path d="M6 5V4a3 3 0 016 0v1" stroke="#fff" stroke-width="2"/></svg>
+            </div>
+            <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Бары и пабы</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Напитки, коктейли, закуски</div></div>
           </div>
-          <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Бары и пабы</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Напитки, коктейли, закуски</div></div>
-        </div>
-        <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
-          <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="2"/><path d="M9 5v4l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+          <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
+            <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="2"/><path d="M9 5v4l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Предзаказ и бронирование</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Гость приходит к накрытому столу</div></div>
           </div>
-          <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Предзаказ и бронирование</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Гость приходит к накрытому столу</div></div>
-        </div>
-        <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
-          <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 14l4-4 3 3 5-6 3 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
+            <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 14l4-4 3 3 5-6 3 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Службы доставки</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Онлайн-заказ и оплата</div></div>
           </div>
-          <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Службы доставки</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Онлайн-заказ и оплата</div></div>
         </div>
       </div>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-      <div style="background:#1A1714; border-radius:24px; padding:28px; grid-column:span 2;">
-        <div style="font-size:clamp(44px,5vw,68px); font-weight:800; color:#FF6B2C; letter-spacing:-2px; line-height:1;">+40%</div>
-        <div style="font-size:15px; font-weight:600; color:rgba(255,255,255,0.55); margin-top:8px; line-height:1.5;">средний рост продаж после внедрения QR-меню</div>
-      </div>
-      <div style="background:#FFE8D8; border-radius:24px; padding:24px;">
-        <div style="font-size:38px; font-weight:800; color:#FF6B2C; letter-spacing:-1px; line-height:1;">2 ч</div>
-        <div style="font-size:13px; font-weight:600; color:rgba(26,23,20,0.55); margin-top:6px;">до запуска</div>
-      </div>
-      <div style="background:#EDEBE7; border-radius:24px; padding:24px;">
-        <div style="font-size:38px; font-weight:800; color:#1A1714; letter-spacing:-1px; line-height:1;">0</div>
-        <div style="font-size:13px; font-weight:600; color:rgba(26,23,20,0.55); margin-top:6px;">приложений</div>
+      <div class="stat-grid">
+        <div style="background:#1A1714; border-radius:24px; padding:28px; grid-column:span 2;">
+          <div style="font-size:clamp(44px,5vw,68px); font-weight:800; color:#FF6B2C; letter-spacing:-2px; line-height:1;">+40%</div>
+          <div style="font-size:15px; font-weight:600; color:rgba(255,255,255,0.55); margin-top:8px; line-height:1.5;">средний рост продаж после внедрения QR-меню</div>
+        </div>
+        <div style="background:#FFE8D8; border-radius:24px; padding:24px;">
+          <div style="font-size:38px; font-weight:800; color:#FF6B2C; letter-spacing:-1px; line-height:1;">2 ч</div>
+          <div style="font-size:13px; font-weight:600; color:rgba(26,23,20,0.55); margin-top:6px;">до запуска</div>
+        </div>
+        <div style="background:#EDEBE7; border-radius:24px; padding:24px;">
+          <div style="font-size:38px; font-weight:800; color:#1A1714; letter-spacing:-1px; line-height:1;">0</div>
+          <div style="font-size:13px; font-weight:600; color:rgba(26,23,20,0.55); margin-top:6px;">приложений</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ADVANTAGES -->
-<section id="prem" style="background:#EDEBE7; padding:80px 40px;">
-  <div style="max-width:1280px; margin:0 auto;">
-    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:20px;">
+<section id="prem" class="section-pad" style="background:#EDEBE7;">
+  <div class="section-inner">
+    <div class="adv-header">
       <div>
         <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:14px;">ПРЕИМУЩЕСТВА</div>
-        <h2 style="font-size:clamp(26px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">Что получает ресторан</h2>
+        <h2 style="font-size:clamp(24px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">Что получает ресторан</h2>
       </div>
       <a href="#contact" style="background:#FF6B2C; color:#fff; padding:13px 26px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none;">Оставить заявку</a>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+    <div class="adv-grid">
       <div style="background:#fff; border-radius:20px; overflow:hidden;">
         <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=200&fit=crop&auto=format" style="width:100%; height:150px; object-fit:cover; display:block;" alt="">
-        <div style="padding:22px;">
+        <div class="adv-pad" style="padding:22px;">
           <h3 style="font-size:16px; font-weight:800; color:#1A1714; margin-bottom:7px;">Экономия на печати</h3>
           <p style="font-size:13px; line-height:1.7; color:rgba(26,23,20,0.52);">Меняете цены — никакой типографии. Изменения за минуты.</p>
         </div>
       </div>
       <div style="background:#fff; border-radius:20px; overflow:hidden;">
         <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=200&fit=crop&auto=format" style="width:100%; height:150px; object-fit:cover; display:block;" alt="">
-        <div style="padding:22px;">
+        <div class="adv-pad" style="padding:22px;">
           <h3 style="font-size:16px; font-weight:800; color:#1A1714; margin-bottom:7px;">Рост среднего чека</h3>
           <p style="font-size:13px; line-height:1.7; color:rgba(26,23,20,0.52);">Аппетитные фото стимулируют заказы. Рост продаж до 40%.</p>
         </div>
       </div>
       <div style="background:#fff; border-radius:20px; overflow:hidden;">
         <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=200&fit=crop&auto=format" style="width:100%; height:150px; object-fit:cover; display:block;" alt="">
-        <div style="padding:22px;">
+        <div class="adv-pad" style="padding:22px;">
           <h3 style="font-size:16px; font-weight:800; color:#1A1714; margin-bottom:7px;">Многоязычность</h3>
           <p style="font-size:13px; line-height:1.7; color:rgba(26,23,20,0.52);">Русский, казахский, английский и другие языки.</p>
         </div>
@@ -328,10 +431,10 @@
 </section>
 
 <!-- TESTIMONIAL -->
-<section style="background:#FF6B2C; padding:72px 40px;">
+<section class="testimonial-pad" style="background:#FF6B2C; padding:72px 40px;">
   <div style="max-width:900px; margin:0 auto; text-align:center;">
-    <div style="font-size:clamp(56px,8vw,96px); font-weight:800; color:#fff; letter-spacing:-3px; line-height:0.9; margin-bottom:28px;">+40%</div>
-    <p style="font-size:clamp(17px,2vw,21px); line-height:1.7; color:rgba(255,255,255,0.88); font-style:italic; margin-bottom:16px; max-width:58ch; margin-left:auto; margin-right:auto;">"Внедрили за один день. В первую неделю гости стали заказывать больше — фото блюд работают лучше любых слов."</p>
+    <div class="testimonial-big" style="font-size:clamp(52px,8vw,96px); font-weight:800; color:#fff; letter-spacing:-3px; line-height:0.9; margin-bottom:28px;">+40%</div>
+    <p class="testimonial-quote" style="font-size:clamp(14px,2vw,21px); line-height:1.7; color:rgba(255,255,255,0.88); font-style:italic; margin-bottom:16px; max-width:58ch; margin-left:auto; margin-right:auto;">"Внедрили за один день. В первую неделю гости стали заказывать больше — фото блюд работают лучше любых слов."</p>
     <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.55); letter-spacing:1px;">— Управляющий рестораном, Алматы</div>
     <div style="margin-top:36px;">
       <a href="#contact" style="display:inline-block; background:#fff; color:#FF6B2C; padding:16px 40px; border-radius:50px; font-weight:700; font-size:15px; text-decoration:none; box-shadow:0 8px 30px rgba(0,0,0,0.15);">Увеличить продажи</a>
@@ -340,11 +443,11 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq" style="background:#fff; padding:80px 40px;">
-  <div style="max-width:700px; margin:0 auto;">
-    <div style="text-align:center; margin-bottom:44px;">
+<section id="faq" class="faq-section-pad" style="background:#fff; padding:80px 40px;">
+  <div class="faq-section-inner" style="max-width:700px; margin:0 auto;">
+    <div class="faq-section-header" style="text-align:center; margin-bottom:44px;">
       <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:14px;">FAQ</div>
-      <h2 style="font-size:clamp(26px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">Частые вопросы</h2>
+      <h2 style="font-size:clamp(24px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">Частые вопросы</h2>
     </div>
     <div id="faq-list"></div>
     <div style="text-align:center; margin-top:44px;">
@@ -354,11 +457,11 @@
 </section>
 
 <!-- CONTACT FORM -->
-<section id="contact" style="background:#EDEBE7; padding:80px 40px;">
-  <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;">
+<section id="contact" class="contact-section-pad" style="background:#EDEBE7; padding:80px 40px;">
+  <div class="contact-grid">
     <div>
       <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:18px;">СТАРТ</div>
-      <h2 style="font-size:clamp(26px,3.5vw,48px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1; margin-bottom:14px;">Оставьте заявку</h2>
+      <h2 style="font-size:clamp(24px,3.5vw,48px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1; margin-bottom:14px;">Оставьте заявку</h2>
       <p style="font-size:16px; color:rgba(26,23,20,0.5); line-height:1.7; margin-bottom:28px;">Ответим в течение 30 минут и запустим меню за 2 часа.</p>
       <div style="display:flex; flex-direction:column; gap:10px;">
         <a href="tel:+77077349189" style="display:flex; align-items:center; gap:12px; text-decoration:none; padding:15px 18px; background:#fff; border-radius:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
@@ -381,16 +484,14 @@
         </a>
       </div>
     </div>
-    <div id="form-container">
-      <!-- Form rendered by JS -->
-    </div>
+    <div id="form-container"></div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer style="background:#1A1714; padding:48px 40px 24px;">
-  <div style="max-width:1280px; margin:0 auto;">
-    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:36px;">
+<footer class="footer-pad" style="background:#1A1714; padding:48px 40px 24px;">
+  <div class="footer-inner">
+    <div class="footer-grid">
       <div>
         <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
           <div style="width:32px; height:32px; background:#FF6B2C; border-radius:8px; display:flex; align-items:center; justify-content:center;">
@@ -400,31 +501,33 @@
         </div>
         <p style="font-size:13px; line-height:1.7; color:rgba(255,255,255,0.3); max-width:26ch;">QR-меню для ресторанов и кафе Казахстана</p>
       </div>
-      <div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">НАВИГАЦИЯ</div>
-        <div style="display:flex; flex-direction:column; gap:9px;">
-          <a href="#how" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">Как работает</a>
-          <a href="#prem" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">Преимущества</a>
-          <a href="#faq" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">FAQ</a>
+      <div class="footer-cols">
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">НАВИГАЦИЯ</div>
+          <div style="display:flex; flex-direction:column; gap:9px;">
+            <a href="#how" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">Как работает</a>
+            <a href="#prem" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">Преимущества</a>
+            <a href="#faq" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">FAQ</a>
+          </div>
         </div>
-      </div>
-      <div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">КОНТАКТЫ</div>
-        <div style="display:flex; flex-direction:column; gap:9px;">
-          <a href="tel:+77077349189" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">+7 707 734 91 89</a>
-          <a href="https://t.me/qujnk" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">@qujnk</a>
-          <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">@tyomavtemu</a>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">КОНТАКТЫ</div>
+          <div style="display:flex; flex-direction:column; gap:9px;">
+            <a href="tel:+77077349189" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">+7 707 734 91 89</a>
+            <a href="https://t.me/qujnk" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">@qujnk</a>
+            <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">@tyomavtemu</a>
+          </div>
         </div>
-      </div>
-      <div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">СОЦСЕТИ</div>
-        <div style="display:flex; gap:8px;">
-          <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.06); border-radius:10px; display:flex; align-items:center; justify-content:center; text-decoration:none;">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="8" cy="8" r="3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="12" cy="4" r="1" fill="rgba(255,255,255,0.4)"/></svg>
-          </a>
-          <a href="https://t.me/qujnk" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.06); border-radius:10px; display:flex; align-items:center; justify-content:center; text-decoration:none;">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 2L1 7l5 2L14 2z" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 9L7.5 14l2.5-4 4-8" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </a>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">СОЦСЕТИ</div>
+          <div style="display:flex; gap:8px;">
+            <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.06); border-radius:10px; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="8" cy="8" r="3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="12" cy="4" r="1" fill="rgba(255,255,255,0.4)"/></svg>
+            </a>
+            <a href="https://t.me/qujnk" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.06); border-radius:10px; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 2L1 7l5 2L14 2z" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 9L7.5 14l2.5-4 4-8" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -436,7 +539,7 @@
 </footer>
 
 <script>
-// ── FAQ Accordion ──────────────────────────────────────────────────────────────
+// ── FAQ ────────────────────────────────────────────────────────────────────────
 const faqData = [
   { q: 'Как создаётся QR-код для меню?', a: 'Novikov Studio создаёт электронный QR-код автоматически при подключении к сервису. Вам останется только распечатать код и разместить на столиках. Всё остальное берём на себя.' },
   { q: 'Можно ли использовать QR-меню как сайт ресторана?', a: 'Да! QR-меню настраивается как полноценный сайт вашего заведения — с описанием, контактами, адресом и функцией онлайн-заказа.' },
@@ -464,8 +567,7 @@ faqData.forEach((item, i) => {
 });
 
 function toggleFaq(index) {
-  const items = document.querySelectorAll('.faq-item');
-  items.forEach((item, i) => {
+  document.querySelectorAll('.faq-item').forEach((item, i) => {
     const answer = item.querySelector('.faq-answer');
     if (i === index) {
       const isOpen = item.classList.contains('open');
@@ -477,6 +579,46 @@ function toggleFaq(index) {
     }
   });
 }
+
+// ── Mobile: fix nav position ───────────────────────────────────────────────────
+function fixNav() {
+  const nav = document.querySelector('nav');
+  if (window.innerWidth <= 768) {
+    nav.style.position = 'sticky';
+    nav.style.top = '0';
+    document.querySelector('.hero-section').style.paddingTop = '0';
+  } else {
+    nav.style.position = 'fixed';
+    document.querySelector('.hero-section').style.paddingTop = '68px';
+  }
+}
+fixNav();
+window.addEventListener('resize', fixNav);
+
+// ── Mobile: phone mockup adjustments ─────────────────────────────────────────
+function adjustPhone() {
+  const isMobile = window.innerWidth <= 768;
+  const device = document.querySelector('.phone-device');
+  const bg = document.querySelector('.phone-bg');
+  if (!device) return;
+  if (isMobile) {
+    device.style.width = '170px';
+    device.style.height = '340px';
+    device.style.borderRadius = '28px';
+    bg.style.width = '280px';
+    bg.style.height = '280px';
+    bg.style.borderRadius = '36px';
+  } else {
+    device.style.width = '240px';
+    device.style.height = '490px';
+    device.style.borderRadius = '36px';
+    bg.style.width = '380px';
+    bg.style.height = '380px';
+    bg.style.borderRadius = '44px';
+  }
+}
+adjustPhone();
+window.addEventListener('resize', adjustPhone);
 
 // ── Contact Form ───────────────────────────────────────────────────────────────
 function renderForm() {
@@ -503,24 +645,20 @@ function renderForm() {
   `;
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    renderSuccess();
+    document.getElementById('form-container').innerHTML = `
+      <div style="background:#fff; border-radius:24px; padding:48px 36px; text-align:center; box-shadow:0 4px 40px rgba(0,0,0,0.08);">
+        <div style="width:60px; height:60px; background:#FFE8D8; border-radius:18px; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M5 15l7 7 12-14" stroke="#FF6B2C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 style="font-size:21px; font-weight:800; color:#1A1714; margin-bottom:10px;">Заявка отправлена!</h3>
+        <p style="font-size:14px; color:rgba(26,23,20,0.5); line-height:1.7; margin-bottom:24px;">Артём свяжется с вами в ближайшее время.</p>
+        <div style="display:flex; gap:10px; justify-content:center;">
+          <a href="https://api.whatsapp.com/send/?phone=77077349189" target="_blank" style="background:#25D366; color:#fff; padding:11px 20px; border-radius:50px; font-weight:700; font-size:13px; text-decoration:none;">WhatsApp</a>
+          <a href="https://t.me/qujnk" target="_blank" style="background:#229ED9; color:#fff; padding:11px 20px; border-radius:50px; font-weight:700; font-size:13px; text-decoration:none;">Telegram</a>
+        </div>
+      </div>
+    `;
   });
-}
-
-function renderSuccess() {
-  document.getElementById('form-container').innerHTML = `
-    <div style="background:#fff; border-radius:24px; padding:48px 36px; text-align:center; box-shadow:0 4px 40px rgba(0,0,0,0.08);">
-      <div style="width:60px; height:60px; background:#FFE8D8; border-radius:18px; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M5 15l7 7 12-14" stroke="#FF6B2C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <h3 style="font-size:21px; font-weight:800; color:#1A1714; margin-bottom:10px;">Заявка отправлена!</h3>
-      <p style="font-size:14px; color:rgba(26,23,20,0.5); line-height:1.7; margin-bottom:24px;">Артём свяжется с вами в ближайшее время.</p>
-      <div style="display:flex; gap:10px; justify-content:center;">
-        <a href="https://api.whatsapp.com/send/?phone=77077349189" target="_blank" style="background:#25D366; color:#fff; padding:11px 20px; border-radius:50px; font-weight:700; font-size:13px; text-decoration:none;">WhatsApp</a>
-        <a href="https://t.me/qujnk" target="_blank" style="background:#229ED9; color:#fff; padding:11px 20px; border-radius:50px; font-weight:700; font-size:13px; text-decoration:none;">Telegram</a>
-      </div>
-    </div>
-  `;
 }
 
 renderForm();

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; background: #EDEBE7; color: #1A1714; overflow-x: hidden; }
+    @keyframes floatA { 0%,100%{transform:translateY(0) rotate(-6deg)} 50%{transform:translateY(-10px) rotate(-6deg)} }
+    @keyframes floatB { 0%,100%{transform:translateY(0) rotate(4deg)} 50%{transform:translateY(-8px) rotate(4deg)} }
+    @keyframes floatC { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-12px) rotate(-2deg)} }
+  </style>
+</helmet>
+
+<!-- NAV -->
+<nav style="position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(237,235,231,0.95); backdrop-filter:blur(20px);">
+  <div style="max-width:1280px; margin:0 auto; padding:0 40px; height:68px; display:flex; align-items:center; justify-content:space-between; gap:24px">
+    <a href="#" style="display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0">
+      <div style="width:36px; height:36px; background:#FF6B2C; border-radius:8px; display:flex; align-items:center; justify-content:center">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L3 3L17 17L17 3" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span style="font-size:18px; font-weight:800; color:#1A1714; letter-spacing:-0.5px">novikov</span>
+    </a>
+    <div style="display:flex; gap:36px; align-items:center">
+      <a href="#how" style="color:rgba(26,23,20,0.5); text-decoration:none; font-size:14px; font-weight:600">Как работает</a>
+      <a href="#scenarios" style="color:rgba(26,23,20,0.5); text-decoration:none; font-size:14px; font-weight:600">Сценарии</a>
+      <a href="#prem" style="color:rgba(26,23,20,0.5); text-decoration:none; font-size:14px; font-weight:600">Преимущества</a>
+      <a href="#faq" style="color:rgba(26,23,20,0.5); text-decoration:none; font-size:14px; font-weight:600">FAQ</a>
+    </div>
+    <div style="display:flex; gap:8px; align-items:center">
+      <a href="#contact" style="background:#FF6B2C; color:#fff; padding:11px 22px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; display:flex; align-items:center; gap:8px">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M1 6l7 4 7-4" stroke="#fff" stroke-width="1.5"/></svg>
+        Оставить заявку
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background:#EDEBE7; padding-top:68px;">
+  <div style="max-width:1280px; margin:0 auto; width:100%; padding:60px 40px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+    <!-- LEFT TEXT -->
+    <div style="min-width:0;">
+      <h1 style="font-size:clamp(36px,4.5vw,64px); font-weight:800; line-height:1.08; letter-spacing:-1.5px; color:#1A1714; margin-bottom:20px;">
+        QR-меню для вашего ресторана<br><span style="color:#FF6B2C;">за 2 часа</span>
+      </h1>
+      <div style="display:inline-flex; align-items:center; gap:10px; background:#fff; border-radius:16px; padding:10px 14px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=48&h=48&fit=crop&auto=format" style="width:36px; height:36px; border-radius:10px; object-fit:cover;" alt="блюдо">
+        <div>
+          <div style="font-size:12px; font-weight:700; color:#1A1714; line-height:1.3;">Том ям с креветками</div>
+          <div style="font-size:11px; color:rgba(26,23,20,0.45); line-height:1.4;">⭐ 4.8 · 1 490 ₸</div>
+        </div>
+      </div>
+      <p style="font-size:17px; line-height:1.7; color:rgba(26,23,20,0.58); margin-bottom:32px; max-width:44ch;">
+        Оставьте заявку — мы разработаем онлайн-меню для вашего бара, кафе или ресторана. Гости сканируют и заказывают без приложений.
+      </p>
+      <a href="#contact" style="display:inline-flex; align-items:center; gap:10px; background:#FF6B2C; color:#fff; padding:18px 36px; border-radius:50px; font-weight:700; font-size:16px; text-decoration:none; box-shadow:0 8px 30px rgba(255,107,44,0.35);">
+        Получить меню за 2 часа
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <!-- RIGHT PHONE MOCKUP -->
+    <div style="position:relative; display:flex; justify-content:center; align-items:center; height:560px; min-width:0;">
+      <div style="position:absolute; width:380px; height:380px; background:#FFD4B8; border-radius:44px; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+      <div style="position:relative; z-index:2; width:240px; height:490px; background:#1A1714; border-radius:36px; padding:3px; box-shadow:0 30px 80px rgba(0,0,0,0.3);">
+        <div style="width:100%; height:100%; background:#fff; border-radius:34px; overflow:hidden;">
+          <div style="background:#fff; padding:12px 20px 6px; display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:11px; font-weight:700; color:#1A1714;">16:05</span>
+            <div style="width:80px; height:12px; background:#1A1714; border-radius:6px;"></div>
+            <span style="font-size:10px; color:#1A1714;">●●●</span>
+          </div>
+          <div style="padding:8px 16px 10px; border-bottom:1px solid #f0f0f0;">
+            <div style="font-size:13px; font-weight:800; color:#1A1714; text-align:center;">Pizza House</div>
+          </div>
+          <div style="height:110px; overflow:hidden; position:relative;">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=220&fit=crop&auto=format" style="width:100%; height:100%; object-fit:cover;" alt="пицца">
+            <div style="position:absolute; bottom:8px; left:10px; background:#FF6B2C; color:#fff; font-size:9px; font-weight:700; padding:3px 8px; border-radius:4px;">NEW</div>
+          </div>
+          <div style="padding:10px 16px 6px;">
+            <div style="font-size:11px; font-weight:800; color:#1A1714; margin-bottom:8px;">Меню ресторана</div>
+            <div style="display:flex; gap:6px; overflow:hidden;">
+              <div style="background:#FF6B2C; color:#fff; font-size:9px; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap;">Пицца</div>
+              <div style="background:#f2f2f2; color:#666; font-size:9px; font-weight:600; padding:4px 10px; border-radius:20px; white-space:nowrap;">Донер</div>
+              <div style="background:#f2f2f2; color:#666; font-size:9px; font-weight:600; padding:4px 10px; border-radius:20px; white-space:nowrap;">Соусы</div>
+            </div>
+          </div>
+          <div style="padding:6px 16px; display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px; background:#fafafa; border-radius:12px; padding:8px;">
+              <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=60&h=60&fit=crop&auto=format" style="width:44px; height:44px; border-radius:8px; object-fit:cover;" alt="">
+              <div style="flex:1; min-width:0;">
+                <div style="font-size:10px; font-weight:700; color:#1A1714;">Четыре сыра</div>
+                <div style="font-size:9px; color:rgba(26,23,20,0.45);">Моцарелла, чеддер</div>
+                <div style="font-size:10px; font-weight:800; color:#FF6B2C; margin-top:2px;">1 290 ₸</div>
+              </div>
+              <div style="width:22px; height:22px; background:#FF6B2C; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <span style="color:#fff; font-size:16px; line-height:1;">+</span>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:#fafafa; border-radius:12px; padding:8px;">
+              <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=60&h=60&fit=crop&auto=format" style="width:44px; height:44px; border-radius:8px; object-fit:cover;" alt="">
+              <div style="flex:1; min-width:0;">
+                <div style="font-size:10px; font-weight:700; color:#1A1714;">Пепперони</div>
+                <div style="font-size:9px; color:rgba(26,23,20,0.45);">Салями, томат</div>
+                <div style="font-size:10px; font-weight:800; color:#FF6B2C; margin-top:2px;">1 490 ₸</div>
+              </div>
+              <div style="width:22px; height:22px; background:#f0f0f0; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <span style="color:#999; font-size:16px; line-height:1;">+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Floating QR -->
+      <div style="position:absolute; left:-20px; top:80px; background:#fff; border-radius:20px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatA 4s ease-in-out infinite; z-index:3;">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="display:block;">
+          <rect x="4" y="4" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="8" y="8" width="16" height="16" rx="1" fill="#fff"/><rect x="11" y="11" width="10" height="10" rx="1" fill="#FF6B2C"/>
+          <rect x="36" y="4" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="40" y="8" width="16" height="16" rx="1" fill="#fff"/><rect x="43" y="11" width="10" height="10" rx="1" fill="#FF6B2C"/>
+          <rect x="4" y="36" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="8" y="40" width="16" height="16" rx="1" fill="#fff"/><rect x="11" y="43" width="10" height="10" rx="1" fill="#FF6B2C"/>
+          <rect x="36" y="36" width="8" height="8" fill="#FF6B2C"/><rect x="48" y="36" width="8" height="8" fill="#FF6B2C"/><rect x="36" y="48" width="8" height="8" fill="#FF6B2C"/><rect x="48" y="48" width="8" height="8" fill="#1A1714"/>
+        </svg>
+        <div style="font-size:10px; font-weight:700; color:#1A1714; text-align:center; margin-top:8px;">Сканируй</div>
+      </div>
+      <!-- Floating card 1 -->
+      <div style="position:absolute; right:-20px; top:90px; background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatB 3.5s ease-in-out infinite; z-index:3; width:155px;">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=100&fit=crop&auto=format" style="width:100%; height:70px; object-fit:cover; border-radius:10px; display:block; margin-bottom:8px;" alt="">
+        <div style="font-size:11px; font-weight:700; color:#1A1714;">Греческий салат</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+          <span style="font-size:11px; font-weight:800; color:#FF6B2C;">890 ₸</span>
+          <span style="font-size:10px; color:#FF6B2C;">★ 4.7</span>
+        </div>
+      </div>
+      <!-- Floating card 2 -->
+      <div style="position:absolute; right:-10px; bottom:90px; background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatC 5s ease-in-out infinite; z-index:3; width:145px;">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=100&fit=crop&auto=format" style="width:100%; height:62px; object-fit:cover; border-radius:10px; display:block; margin-bottom:8px;" alt="">
+        <div style="font-size:11px; font-weight:700; color:#1A1714;">Pancakes</div>
+        <span style="font-size:11px; font-weight:800; color:#FF6B2C;">650 ₸</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section style="background:#fff; padding:32px 40px; border-top:1px solid rgba(26,23,20,0.08); border-bottom:1px solid rgba(26,23,20,0.08);">
+  <div style="max-width:1280px; margin:0 auto; display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
+    <span style="font-size:13px; font-weight:600; color:rgba(26,23,20,0.35); white-space:nowrap;">Наши клиенты:</span>
+    <div style="display:flex; gap:40px; align-items:center; flex-wrap:wrap; flex:1;">
+      <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">Crêpe Café</span>
+      <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">ЭКБОТА</span>
+      <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">Pizza Hub</span>
+      <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">Dolce Vita</span>
+      <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">KFC</span>
+      <span style="font-size:16px; font-weight:800; color:rgba(26,23,20,0.18); letter-spacing:-0.5px;">Hardee's</span>
+      <span style="font-size:13px; font-weight:700; color:rgba(26,23,20,0.25);">900+ довольных</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="background:#EDEBE7; padding:80px 40px;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:16px;">КАК РАБОТАЕТ</div>
+      <h2 style="font-size:clamp(32px,4vw,52px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">3 простых шага</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <div style="background:#fff; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
+        <div style="font-size:72px; font-weight:800; color:rgba(255,107,44,0.08); position:absolute; top:16px; right:20px; line-height:1;">01</div>
+        <div style="width:48px; height:48px; background:#FFE8D8; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="8" height="8" rx="1.5" stroke="#FF6B2C" stroke-width="2"/><rect x="14" y="2" width="8" height="8" rx="1.5" stroke="#FF6B2C" stroke-width="2"/><rect x="2" y="14" width="8" height="8" rx="1.5" stroke="#FF6B2C" stroke-width="2"/><rect x="16" y="16" width="4" height="4" fill="#FF6B2C" rx="1"/></svg>
+        </div>
+        <h3 style="font-size:19px; font-weight:800; color:#1A1714; margin-bottom:10px;">Сканирование QR</h3>
+        <p style="font-size:14px; line-height:1.7; color:rgba(26,23,20,0.55);">Гость сканирует QR-код камерой — без загрузки приложений. Один клик, и меню открыто.</p>
+      </div>
+      <div style="background:#FF6B2C; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
+        <div style="font-size:72px; font-weight:800; color:rgba(255,255,255,0.12); position:absolute; top:16px; right:20px; line-height:1;">02</div>
+        <div style="width:48px; height:48px; background:rgba(255,255,255,0.2); border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="3" stroke="#fff" stroke-width="2"/><path d="M7 10h10M7 14h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M2 7h20" stroke="#fff" stroke-width="2"/></svg>
+        </div>
+        <h3 style="font-size:19px; font-weight:800; color:#fff; margin-bottom:10px;">Онлайн-меню</h3>
+        <p style="font-size:14px; line-height:1.7; color:rgba(255,255,255,0.75);">Аппетитные фото блюд, описания и цены. Удобная навигация по категориям.</p>
+      </div>
+      <div style="background:#fff; border-radius:24px; padding:36px 28px; position:relative; overflow:hidden;">
+        <div style="font-size:72px; font-weight:800; color:rgba(255,107,44,0.08); position:absolute; top:16px; right:20px; line-height:1;">03</div>
+        <div style="width:48px; height:48px; background:#FFE8D8; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="14" height="16" rx="2" stroke="#FF6B2C" stroke-width="2"/><path d="M18 9l4 4-4 4" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10h6M6 14h4" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:19px; font-weight:800; color:#1A1714; margin-bottom:10px;">Заказ и оплата</h3>
+        <p style="font-size:14px; line-height:1.7; color:rgba(26,23,20,0.55);">Гость выбирает блюда и оплачивает онлайн. Деньги мгновенно поступают на счёт.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section id="scenarios" style="background:#fff; padding:80px 40px;">
+  <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;">
+    <div>
+      <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:18px;">СЦЕНАРИИ</div>
+      <h2 style="font-size:clamp(26px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1; margin-bottom:16px;">Для кого подходит</h2>
+      <p style="font-size:16px; line-height:1.7; color:rgba(26,23,20,0.55); margin-bottom:28px;">Novikov Studio создаёт меню для любого формата заведения.</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
+          <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15V9a6 6 0 0112 0v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M1 15h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Рестораны и кафе</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Полное меню с категориями и фото</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
+          <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="2"/><path d="M6 5V4a3 3 0 016 0v1" stroke="#fff" stroke-width="2"/></svg>
+          </div>
+          <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Бары и пабы</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Напитки, коктейли, закуски</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
+          <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="2"/><path d="M9 5v4l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Предзаказ и бронирование</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Гость приходит к накрытому столу</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; background:#EDEBE7; border-radius:14px; padding:14px 18px;">
+          <div style="width:36px; height:36px; background:#FF6B2C; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 14l4-4 3 3 5-6 3 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div><div style="font-size:14px; font-weight:700; color:#1A1714;">Службы доставки</div><div style="font-size:12px; color:rgba(26,23,20,0.45);">Онлайн-заказ и оплата</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+      <div style="background:#1A1714; border-radius:24px; padding:28px; grid-column:span 2;">
+        <div style="font-size:clamp(44px,5vw,68px); font-weight:800; color:#FF6B2C; letter-spacing:-2px; line-height:1;">+40%</div>
+        <div style="font-size:15px; font-weight:600; color:rgba(255,255,255,0.55); margin-top:8px; line-height:1.5;">средний рост продаж после внедрения QR-меню</div>
+      </div>
+      <div style="background:#FFE8D8; border-radius:24px; padding:24px;">
+        <div style="font-size:38px; font-weight:800; color:#FF6B2C; letter-spacing:-1px; line-height:1;">2 ч</div>
+        <div style="font-size:13px; font-weight:600; color:rgba(26,23,20,0.55); margin-top:6px;">до запуска</div>
+      </div>
+      <div style="background:#EDEBE7; border-radius:24px; padding:24px;">
+        <div style="font-size:38px; font-weight:800; color:#1A1714; letter-spacing:-1px; line-height:1;">0</div>
+        <div style="font-size:13px; font-weight:600; color:rgba(26,23,20,0.55); margin-top:6px;">приложений</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section id="prem" style="background:#EDEBE7; padding:80px 40px;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:20px;">
+      <div>
+        <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:14px;">ПРЕИМУЩЕСТВА</div>
+        <h2 style="font-size:clamp(26px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">Что получает ресторан</h2>
+      </div>
+      <a href="#contact" style="background:#FF6B2C; color:#fff; padding:13px 26px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none;">Оставить заявку</a>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+      <div style="background:#fff; border-radius:20px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=200&fit=crop&auto=format" style="width:100%; height:150px; object-fit:cover; display:block;" alt="">
+        <div style="padding:22px;">
+          <h3 style="font-size:16px; font-weight:800; color:#1A1714; margin-bottom:7px;">Экономия на печати</h3>
+          <p style="font-size:13px; line-height:1.7; color:rgba(26,23,20,0.52);">Меняете цены — никакой типографии. Изменения за минуты.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:20px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=200&fit=crop&auto=format" style="width:100%; height:150px; object-fit:cover; display:block;" alt="">
+        <div style="padding:22px;">
+          <h3 style="font-size:16px; font-weight:800; color:#1A1714; margin-bottom:7px;">Рост среднего чека</h3>
+          <p style="font-size:13px; line-height:1.7; color:rgba(26,23,20,0.52);">Аппетитные фото стимулируют заказы. Рост продаж до 40%.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:20px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=200&fit=crop&auto=format" style="width:100%; height:150px; object-fit:cover; display:block;" alt="">
+        <div style="padding:22px;">
+          <h3 style="font-size:16px; font-weight:800; color:#1A1714; margin-bottom:7px;">Многоязычность</h3>
+          <p style="font-size:13px; line-height:1.7; color:rgba(26,23,20,0.52);">Русский, казахский, английский и другие языки.</p>
+        </div>
+      </div>
+      <div style="background:#FF6B2C; border-radius:20px; padding:28px;">
+        <div style="width:42px; height:42px; background:rgba(255,255,255,0.2); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="1" y="4" width="11" height="12" rx="2" stroke="#fff" stroke-width="2"/><path d="M1 8h11M5 4v12" stroke="#fff" stroke-width="2"/><path d="M14 7h2a2 2 0 012 2v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-2" stroke="#fff" stroke-width="2"/></svg>
+        </div>
+        <h3 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:7px;">Онлайн-оплата</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(255,255,255,0.75);">Оплата через меню. Деньги мгновенно поступают на счёт.</p>
+      </div>
+      <div style="background:#1A1714; border-radius:20px; padding:28px;">
+        <div style="width:42px; height:42px; background:rgba(255,255,255,0.07); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 16V5l7 4 7-4v11" stroke="#FF6B2C" stroke-width="2" stroke-linejoin="round"/><path d="M9 9v7" stroke="#FF6B2C" stroke-width="2"/></svg>
+        </div>
+        <h3 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:7px;">Аналитика</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(255,255,255,0.5);">Поведение гостей — точная настройка рекламы.</p>
+      </div>
+      <div style="background:#fff; border-radius:20px; padding:28px;">
+        <div style="width:42px; height:42px; background:#FFE8D8; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1a9 9 0 100 18A9 9 0 0010 1z" stroke="#FF6B2C" stroke-width="2"/><path d="M7 10h6M10 7v6" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:16px; font-weight:800; color:#1A1714; margin-bottom:7px;">Гигиеничность</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(26,23,20,0.52);">QR-меню бесконтактно — каждый держит свой телефон.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section style="background:#FF6B2C; padding:72px 40px;">
+  <div style="max-width:900px; margin:0 auto; text-align:center;">
+    <div style="font-size:clamp(56px,8vw,96px); font-weight:800; color:#fff; letter-spacing:-3px; line-height:0.9; margin-bottom:28px;">+40%</div>
+    <p style="font-size:clamp(17px,2vw,21px); line-height:1.7; color:rgba(255,255,255,0.88); font-style:italic; margin-bottom:16px; max-width:58ch; margin-left:auto; margin-right:auto;">"Внедрили за один день. В первую неделю гости стали заказывать больше — фото блюд работают лучше любых слов."</p>
+    <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.55); letter-spacing:1px;">— Управляющий рестораном, Алматы</div>
+    <div style="margin-top:36px;">
+      <a href="#contact" style="display:inline-block; background:#fff; color:#FF6B2C; padding:16px 40px; border-radius:50px; font-weight:700; font-size:15px; text-decoration:none; box-shadow:0 8px 30px rgba(0,0,0,0.15);">Увеличить продажи</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#fff; padding:80px 40px;">
+  <div style="max-width:700px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:44px;">
+      <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:14px;">FAQ</div>
+      <h2 style="font-size:clamp(26px,3.5vw,44px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1;">Частые вопросы</h2>
+    </div>
+    <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="5">
+      <div style="border-bottom:1px solid rgba(26,23,20,0.1);">
+        <button onClick="{{ item.toggle }}" style="width:100%; background:none; border:none; padding:20px 0; display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; text-align:left; font-family:Manrope,sans-serif;">
+          <span style="font-size:15px; font-weight:700; color:#1A1714; line-height:1.4;">{{ item.q }}</span>
+          <div style="width:26px; height:26px; background:#FFE8D8; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1v10" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+        </button>
+        <sc-if value="{{ item.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 0 20px; font-size:14px; line-height:1.8; color:rgba(26,23,20,0.58);">{{ item.a }}</div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div style="text-align:center; margin-top:44px;">
+      <a href="#contact" style="display:inline-block; background:#FF6B2C; color:#fff; padding:16px 40px; border-radius:50px; font-weight:700; font-size:15px; text-decoration:none; box-shadow:0 8px 24px rgba(255,107,44,0.3);">Оставить заявку</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact" style="background:#EDEBE7; padding:80px 40px;">
+  <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;">
+    <div>
+      <div style="display:inline-block; background:#FFE8D8; color:#FF6B2C; font-size:12px; font-weight:700; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:18px;">СТАРТ</div>
+      <h2 style="font-size:clamp(26px,3.5vw,48px); font-weight:800; letter-spacing:-1px; color:#1A1714; line-height:1.1; margin-bottom:14px;">Оставьте заявку</h2>
+      <p style="font-size:16px; color:rgba(26,23,20,0.5); line-height:1.7; margin-bottom:28px;">Ответим в течение 30 минут и запустим меню за 2 часа.</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="tel:+77077349189" style="display:flex; align-items:center; gap:12px; text-decoration:none; padding:15px 18px; background:#fff; border-radius:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width:34px; height:34px; background:#FFE8D8; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h4l1.5 4-2 1.5c.8 1.8 2.2 3.2 4 4L11 9.5l4 1.5V15C8 16.5 0 8.5 2 2z" stroke="#FF6B2C" stroke-width="1.5"/></svg>
+          </div>
+          <span style="font-size:14px; font-weight:600; color:#1A1714;">+7 707 734 91 89</span>
+        </a>
+        <a href="https://t.me/qujnk" target="_blank" style="display:flex; align-items:center; gap:12px; text-decoration:none; padding:15px 18px; background:#fff; border-radius:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width:34px; height:34px; background:#FFE8D8; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 2L1 7l5 2L14 2z" stroke="#FF6B2C" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 9L7.5 14l2.5-4 4-8" stroke="#FF6B2C" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span style="font-size:14px; font-weight:600; color:#1A1714;">Telegram: @qujnk</span>
+        </a>
+        <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="display:flex; align-items:center; gap:12px; text-decoration:none; padding:15px 18px; background:#fff; border-radius:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width:34px; height:34px; background:#FFE8D8; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="#FF6B2C" stroke-width="1.5"/><circle cx="8" cy="8" r="3" stroke="#FF6B2C" stroke-width="1.5"/><circle cx="12" cy="4" r="1" fill="#FF6B2C"/></svg>
+          </div>
+          <span style="font-size:14px; font-weight:600; color:#1A1714;">Instagram: @tyomavtemu</span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <sc-if value="{{ formSubmitted }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fff; border-radius:24px; padding:48px 36px; text-align:center; box-shadow:0 4px 40px rgba(0,0,0,0.08);">
+          <div style="width:60px; height:60px; background:#FFE8D8; border-radius:18px; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M5 15l7 7 12-14" stroke="#FF6B2C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 style="font-size:21px; font-weight:800; color:#1A1714; margin-bottom:10px;">Заявка отправлена!</h3>
+          <p style="font-size:14px; color:rgba(26,23,20,0.5); line-height:1.7; margin-bottom:24px;">Артём свяжется с вами в ближайшее время.</p>
+          <div style="display:flex; gap:10px; justify-content:center;">
+            <a href="https://api.whatsapp.com/send/?phone=77077349189" target="_blank" style="background:#25D366; color:#fff; padding:11px 20px; border-radius:50px; font-weight:700; font-size:13px; text-decoration:none;">WhatsApp</a>
+            <a href="https://t.me/qujnk" target="_blank" style="background:#229ED9; color:#fff; padding:11px 20px; border-radius:50px; font-weight:700; font-size:13px; text-decoration:none;">Telegram</a>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onSubmit }}" style="background:#fff; border-radius:24px; padding:36px; box-shadow:0 4px 40px rgba(0,0,0,0.08);">
+          <h3 style="font-size:19px; font-weight:800; color:#1A1714; margin-bottom:22px;">Заполните форму</h3>
+          <div style="display:flex; flex-direction:column; gap:13px;">
+            <div>
+              <label style="display:block; font-size:12px; font-weight:700; color:rgba(26,23,20,0.4); letter-spacing:1px; margin-bottom:7px;">ИМЯ *</label>
+              <input type="text" value="{{ formName }}" onChange="{{ setName }}" placeholder="Ваше имя" required style="width:100%; background:#F5F3F0; border:1.5px solid transparent; color:#1A1714; padding:13px 15px; border-radius:12px; font-family:Manrope,sans-serif; font-size:14px; font-weight:500;" style-focus="border-color:#FF6B2C; outline:none; background:#fff;"/>
+            </div>
+            <div>
+              <label style="display:block; font-size:12px; font-weight:700; color:rgba(26,23,20,0.4); letter-spacing:1px; margin-bottom:7px;">ТЕЛЕФОН *</label>
+              <input type="tel" value="{{ formPhone }}" onChange="{{ setPhone }}" placeholder="+7 (___) ___ __ __" required style="width:100%; background:#F5F3F0; border:1.5px solid transparent; color:#1A1714; padding:13px 15px; border-radius:12px; font-family:Manrope,sans-serif; font-size:14px; font-weight:500;" style-focus="border-color:#FF6B2C; outline:none; background:#fff;"/>
+            </div>
+            <div>
+              <label style="display:block; font-size:12px; font-weight:700; color:rgba(26,23,20,0.4); letter-spacing:1px; margin-bottom:7px;">РЕСТОРАН</label>
+              <input type="text" value="{{ formRestaurant }}" onChange="{{ setRestaurant }}" placeholder="Название заведения" style="width:100%; background:#F5F3F0; border:1.5px solid transparent; color:#1A1714; padding:13px 15px; border-radius:12px; font-family:Manrope,sans-serif; font-size:14px; font-weight:500;" style-focus="border-color:#FF6B2C; outline:none; background:#fff;"/>
+            </div>
+            <button type="submit" style="width:100%; background:#FF6B2C; color:#fff; border:none; padding:16px; border-radius:50px; font-weight:700; font-size:15px; cursor:pointer; font-family:Manrope,sans-serif; margin-top:4px; box-shadow:0 8px 24px rgba(255,107,44,0.3);">Оставить заявку</button>
+          </div>
+          <p style="font-size:11px; color:rgba(26,23,20,0.25); text-align:center; margin-top:12px; line-height:1.6;">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#1A1714; padding:48px 40px 24px;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:36px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <div style="width:32px; height:32px; background:#FF6B2C; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15L3 3L15 15L15 3" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:17px; font-weight:800; color:#fff; letter-spacing:-0.5px;">novikov</span>
+        </div>
+        <p style="font-size:13px; line-height:1.7; color:rgba(255,255,255,0.3); max-width:26ch;">QR-меню для ресторанов и кафе Казахстана</p>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">НАВИГАЦИЯ</div>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <a href="#how" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">Как работает</a>
+          <a href="#prem" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">Преимущества</a>
+          <a href="#faq" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">КОНТАКТЫ</div>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <a href="tel:+77077349189" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">+7 707 734 91 89</a>
+          <a href="https://t.me/qujnk" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">@qujnk</a>
+          <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">@tyomavtemu</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.2); margin-bottom:14px;">СОЦСЕТИ</div>
+        <div style="display:flex; gap:8px;">
+          <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.06); border-radius:10px; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="8" cy="8" r="3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="12" cy="4" r="1" fill="rgba(255,255,255,0.4)"/></svg>
+          </a>
+          <a href="https://t.me/qujnk" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.06); border-radius:10px; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 2L1 7l5 2L14 2z" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 9L7.5 14l2.5-4 4-8" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:18px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+      <span style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.18);">© 2025 Novikov Studio</span>
+      <span style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.12);">Казахстан</span>
+    </div>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+class Component extends DCLogic {
+  state = {
+    faqOpen: null,
+    formName: '',
+    formPhone: '',
+    formRestaurant: '',
+    formSubmitted: false
+  };
+
+  renderVals() {
+    const { faqOpen, formSubmitted, formName, formPhone, formRestaurant } = this.state;
+
+    const faqData = [
+      { q: 'Как создаётся QR-код для меню?', a: 'Novikov Studio создаёт электронный QR-код автоматически при подключении к сервису. Вам останется только распечатать код и разместить на столиках. Всё остальное берём на себя.' },
+      { q: 'Можно ли использовать QR-меню как сайт ресторана?', a: 'Да! QR-меню настраивается как полноценный сайт вашего заведения — с описанием, контактами, адресом и функцией онлайн-заказа.' },
+      { q: 'Смогут ли гости делать предзаказ через QR-меню?', a: 'Да. Гость выбирает блюда заранее, оплачивает онлайн и приходит к уже накрытому столу — без звонков и переписки.' },
+      { q: 'Какие выгоды получит мой ресторан?', a: 'Экономия на печати, рост среднего чека за счёт фото, аналитика по гостям, мгновенное обновление цен. Средний рост продаж — 20–40%.' },
+      { q: 'Сколько стоит QR-меню от Novikov Studio?', a: 'Оставьте заявку — менеджер Артём свяжется с вами и подберёт тариф. Разработка меню — 2 часа после получения материалов.' }
+    ];
+
+    const faqItems = faqData.map((item, i) => ({
+      q: item.q,
+      a: item.a,
+      isOpen: faqOpen === i,
+      toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? null : i }))
+    }));
+
+    return {
+      faqItems,
+      formName, formPhone, formRestaurant, formSubmitted,
+      showForm: !formSubmitted,
+      setName: (e) => this.setState({ formName: e.target.value }),
+      setPhone: (e) => this.setState({ formPhone: e.target.value }),
+      setRestaurant: (e) => this.setState({ formRestaurant: e.target.value }),
+      onSubmit: (e) => { e.preventDefault(); this.setState({ formSubmitted: true }); }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

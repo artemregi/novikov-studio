@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; background: #fff; color: #0F0B07; overflow-x: hidden; }
+    ::placeholder { color: rgba(15,11,7,0.35); }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+  </style>
+</helmet>
+
+<!-- NAV -->
+<nav style="position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); border-bottom:3px solid #0F0B07">
+  <div style="padding:0 clamp(24px,5vw,120px); height:64px; display:flex; align-items:center; justify-content:space-between; gap:24px">
+    <a href="#" style="display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" style="image-rendering:pixelated; shape-rendering:crispEdges">
+        <rect x="0" y="0" width="8" height="4" fill="#FF6B2C"/>
+        <rect x="0" y="0" width="4" height="8" fill="#FF6B2C"/>
+        <rect x="28" y="0" width="8" height="4" fill="#FF6B2C"/>
+        <rect x="32" y="0" width="4" height="8" fill="#FF6B2C"/>
+        <rect x="0" y="32" width="8" height="4" fill="#FF6B2C"/>
+        <rect x="0" y="28" width="4" height="8" fill="#FF6B2C"/>
+        <rect x="28" y="32" width="8" height="4" fill="#FF6B2C"/>
+        <rect x="32" y="28" width="4" height="8" fill="#FF6B2C"/>
+        <path d="M9 27L9 9L27 27L27 9" stroke="#FF6B2C" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+      <div>
+        <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:16px; letter-spacing:2px; color:#0F0B07; line-height:1.2">NOVIKOV</div>
+        <div style="font-family:'Press Start 2P',monospace; font-size:6px; color:rgba(15,11,7,0.35); line-height:1.4">STUDIO</div>
+      </div>
+    </a>
+    <div style="{{ navLinksStyle }}">
+      <a href="#how" style="color:rgba(15,11,7,0.5); text-decoration:none; font-size:13px; font-weight:600; font-family:Manrope,sans-serif">Как работает</a>
+      <a href="#prem" style="color:rgba(15,11,7,0.5); text-decoration:none; font-size:13px; font-weight:600; font-family:Manrope,sans-serif">Преимущества</a>
+      <a href="#faq" style="color:rgba(15,11,7,0.5); text-decoration:none; font-size:13px; font-weight:600; font-family:Manrope,sans-serif">FAQ</a>
+    </div>
+    <a href="#contact" style="background:#FF6B2C; color:#fff; padding:10px 24px; font-weight:700; font-size:13px; text-decoration:none; flex-shrink:0; box-shadow:4px 4px 0 #D4500A; font-family:Manrope,sans-serif">Оставить заявку</a>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section style="background:#fff; display:grid; grid-template-columns:1fr 1fr; padding:80px clamp(24px,5vw,120px) 60px; align-items:center; gap:48px; border-bottom:3px solid #0F0B07">
+  <div>
+    <div style="display:inline-flex; align-items:center; gap:8px; border:2px solid #FF6B2C; padding:6px 14px; margin-bottom:32px; background:#FFF0E8">
+      <span style="width:6px; height:6px; background:#FF6B2C; display:block; flex-shrink:0; animation:blink 1s step-end infinite"></span>
+      <span style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; color:#FF6B2C; line-height:1.4">QR-МЕНЮ · КАЗАХСТАН</span>
+    </div>
+    <h1 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(36px,4.5vw,72px); line-height:1.1; color:#0F0B07; margin-bottom:24px">
+      Цифровое меню<br>для ресторана<br><span style="color:#FF6B2C">за 2 часа</span>
+    </h1>
+    <p style="font-size:clamp(15px,1.2vw,17px); line-height:1.75; color:rgba(15,11,7,0.65); margin-bottom:40px; max-width:50ch">
+      Оставьте заявку — мы разработаем QR-меню для вашего бара, кафе или ресторана. Гости сканируют, выбирают и заказывают без бумажного меню.
+    </p>
+    <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-bottom:36px">
+      <a href="#contact" style="background:#FF6B2C; color:#fff; padding:16px 36px; font-weight:700; font-size:15px; text-decoration:none; box-shadow:4px 4px 0 #D4500A; font-family:Manrope,sans-serif">Оставить заявку</a>
+      <a href="#how" style="color:rgba(15,11,7,0.5); font-size:14px; font-weight:600; text-decoration:none; display:flex; align-items:center; gap:6px; font-family:Manrope,sans-serif">
+        Как работает →
+      </a>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); border:2px solid #0F0B07">
+      <div style="padding:20px 24px; border-right:2px solid #0F0B07">
+        <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(24px,2.5vw,34px); color:#FF6B2C; line-height:1">+40%</div>
+        <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; color:rgba(15,11,7,0.45); margin-top:6px; line-height:1.4">рост продаж</div>
+      </div>
+      <div style="padding:20px 24px; border-right:2px solid #0F0B07">
+        <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(24px,2.5vw,34px); color:#FF6B2C; line-height:1">2 ч</div>
+        <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; color:rgba(15,11,7,0.45); margin-top:6px; line-height:1.4">до запуска</div>
+      </div>
+      <div style="padding:20px 24px">
+        <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(24px,2.5vw,34px); color:#FF6B2C; line-height:1">0 ₸</div>
+        <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; color:rgba(15,11,7,0.45); margin-top:6px; line-height:1.4">приложение</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIXEL ART QR CODE -->
+  <div style="display:flex; justify-content:center; align-items:center">
+    <div style="animation:float 4s ease-in-out infinite">
+      <svg width="350" height="350" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated; shape-rendering:crispEdges">
+        <!-- ── FINDER TL ── -->
+        <rect x="50" y="50" width="84" height="12" fill="#FF6B2C"/>
+        <rect x="50" y="122" width="84" height="12" fill="#FF6B2C"/>
+        <rect x="50" y="62" width="12" height="60" fill="#FF6B2C"/>
+        <rect x="122" y="62" width="12" height="60" fill="#FF6B2C"/>
+        <rect x="62" y="62" width="60" height="12" fill="#fff"/>
+        <rect x="62" y="110" width="60" height="12" fill="#fff"/>
+        <rect x="62" y="74" width="12" height="36" fill="#fff"/>
+        <rect x="110" y="74" width="12" height="36" fill="#fff"/>
+        <rect x="74" y="74" width="36" height="36" fill="#FF6B2C"/>
+        <!-- ── FINDER TR ── -->
+        <rect x="218" y="50" width="84" height="12" fill="#FF6B2C"/>
+        <rect x="218" y="122" width="84" height="12" fill="#FF6B2C"/>
+        <rect x="218" y="62" width="12" height="60" fill="#FF6B2C"/>
+        <rect x="290" y="62" width="12" height="60" fill="#FF6B2C"/>
+        <rect x="230" y="62" width="60" height="12" fill="#fff"/>
+        <rect x="230" y="110" width="60" height="12" fill="#fff"/>
+        <rect x="230" y="74" width="12" height="36" fill="#fff"/>
+        <rect x="278" y="74" width="12" height="36" fill="#fff"/>
+        <rect x="242" y="74" width="36" height="36" fill="#FF6B2C"/>
+        <!-- ── FINDER BL ── -->
+        <rect x="50" y="218" width="84" height="12" fill="#FF6B2C"/>
+        <rect x="50" y="290" width="84" height="12" fill="#FF6B2C"/>
+        <rect x="50" y="230" width="12" height="60" fill="#FF6B2C"/>
+        <rect x="122" y="230" width="12" height="60" fill="#FF6B2C"/>
+        <rect x="62" y="230" width="60" height="12" fill="#fff"/>
+        <rect x="62" y="278" width="60" height="12" fill="#fff"/>
+        <rect x="62" y="242" width="12" height="36" fill="#fff"/>
+        <rect x="110" y="242" width="12" height="36" fill="#fff"/>
+        <rect x="74" y="242" width="36" height="36" fill="#FF6B2C"/>
+        <!-- ── CENTER N MARK ── -->
+        <rect x="134" y="134" width="84" height="84" fill="#FFF0E8"/>
+        <rect x="134" y="134" width="84" height="6" fill="#FF6B2C"/>
+        <rect x="134" y="212" width="84" height="6" fill="#FF6B2C"/>
+        <rect x="134" y="134" width="6" height="84" fill="#FF6B2C"/>
+        <rect x="212" y="134" width="6" height="84" fill="#FF6B2C"/>
+        <path d="M148 208 L148 144 L204 208 L204 144" stroke="#FF6B2C" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter"/>
+        <!-- ── DATA MODULES top strip ── -->
+        <rect x="134" y="50" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="158" y="62" width="12" height="12" fill="#0F0B07"/>
+        <rect x="170" y="50" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="182" y="74" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="194" y="62" width="12" height="12" fill="#0F0B07"/>
+        <rect x="134" y="86" width="12" height="12" fill="#0F0B07"/>
+        <rect x="146" y="98" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="170" y="110" width="12" height="12" fill="#0F0B07"/>
+        <rect x="194" y="98" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="206" y="110" width="12" height="12" fill="#0F0B07"/>
+        <!-- ── DATA MODULES right strip ── -->
+        <rect x="218" y="134" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="230" y="146" width="12" height="12" fill="#0F0B07"/>
+        <rect x="254" y="134" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="266" y="158" width="12" height="12" fill="#0F0B07"/>
+        <rect x="278" y="146" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="218" y="170" width="12" height="12" fill="#0F0B07"/>
+        <rect x="242" y="182" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="266" y="170" width="12" height="12" fill="#0F0B07"/>
+        <rect x="290" y="182" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="218" y="194" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="242" y="206" width="12" height="12" fill="#0F0B07"/>
+        <!-- ── DATA MODULES left strip ── -->
+        <rect x="50" y="134" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="62" y="146" width="12" height="12" fill="#0F0B07"/>
+        <rect x="86" y="134" width="12" height="12" fill="#0F0B07"/>
+        <rect x="98" y="158" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="122" y="146" width="12" height="12" fill="#0F0B07"/>
+        <rect x="50" y="170" width="12" height="12" fill="#0F0B07"/>
+        <rect x="74" y="182" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="98" y="170" width="12" height="12" fill="#0F0B07"/>
+        <rect x="122" y="194" width="12" height="12" fill="#FF6B2C"/>
+        <!-- ── DATA MODULES bottom strip ── -->
+        <rect x="134" y="218" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="158" y="230" width="12" height="12" fill="#0F0B07"/>
+        <rect x="170" y="218" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="194" y="242" width="12" height="12" fill="#0F0B07"/>
+        <rect x="218" y="218" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="230" y="230" width="12" height="12" fill="#0F0B07"/>
+        <rect x="254" y="218" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="266" y="254" width="12" height="12" fill="#0F0B07"/>
+        <rect x="278" y="230" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="290" y="218" width="12" height="12" fill="#0F0B07"/>
+        <rect x="134" y="254" width="12" height="12" fill="#0F0B07"/>
+        <rect x="146" y="266" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="170" y="254" width="12" height="12" fill="#0F0B07"/>
+        <rect x="194" y="278" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="218" y="254" width="12" height="12" fill="#0F0B07"/>
+        <rect x="242" y="266" width="12" height="12" fill="#FF6B2C"/>
+        <rect x="266" y="278" width="12" height="12" fill="#0F0B07"/>
+        <rect x="290" y="266" width="12" height="12" fill="#FF6B2C"/>
+        <!-- ── PIXEL STARS ── -->
+        <rect x="16" y="22" width="6" height="6" fill="#FF6B2C" opacity="0.5"/>
+        <rect x="22" y="16" width="6" height="18" fill="#FF6B2C" opacity="0.5"/>
+        <rect x="28" y="22" width="6" height="6" fill="#FF6B2C" opacity="0.5"/>
+        <rect x="314" y="22" width="6" height="6" fill="#FF6B2C" opacity="0.5"/>
+        <rect x="320" y="16" width="6" height="18" fill="#FF6B2C" opacity="0.5"/>
+        <rect x="326" y="22" width="6" height="6" fill="#FF6B2C" opacity="0.5"/>
+        <rect x="16" y="314" width="6" height="6" fill="#0F0B07" opacity="0.2"/>
+        <rect x="22" y="308" width="6" height="18" fill="#0F0B07" opacity="0.2"/>
+        <rect x="28" y="314" width="6" height="6" fill="#0F0B07" opacity="0.2"/>
+        <!-- pixel dots decoration -->
+        <rect x="170" y="20" width="8" height="8" fill="#FF6B2C" opacity="0.3"/>
+        <rect x="184" y="14" width="6" height="6" fill="#0F0B07" opacity="0.15"/>
+        <rect x="308" y="170" width="8" height="8" fill="#FF6B2C" opacity="0.3"/>
+        <rect x="320" y="156" width="6" height="6" fill="#0F0B07" opacity="0.15"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section style="background:#F8F4F0; padding:32px clamp(24px,5vw,120px); border-bottom:3px solid #0F0B07">
+  <div style="display:flex; gap:20px 48px; align-items:center; flex-wrap:wrap">
+    <span style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:rgba(15,11,7,0.35); white-space:nowrap; line-height:1.4">НАМ ДОВЕРЯЮТ</span>
+    <div style="width:3px; height:18px; background:#0F0B07; opacity:0.15"></div>
+    <div style="display:flex; gap:40px; align-items:center; flex-wrap:wrap">
+      <span style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:16px; color:rgba(15,11,7,0.2); letter-spacing:2px">BRASSERIE</span>
+      <span style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:16px; color:rgba(15,11,7,0.2); letter-spacing:2px">SUSHI BAR</span>
+      <span style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:16px; color:rgba(15,11,7,0.2); letter-spacing:2px">DOLCE VITA</span>
+      <span style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:16px; color:rgba(15,11,7,0.2); letter-spacing:2px">THE GRILL</span>
+      <span style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:16px; color:rgba(15,11,7,0.2); letter-spacing:2px">NOODLE BAR</span>
+      <span style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:16px; color:rgba(15,11,7,0.2); letter-spacing:2px">PASTA LOFT</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS — Асимметричный, тёмный -->
+<section id="how" style="background:#0F0B07; padding:56px clamp(24px,5vw,120px); border-bottom:3px solid #FF6B2C">
+  <div style="display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start">
+    <div style="position:sticky; top:88px">
+      <p style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:#FF6B2C; margin-bottom:24px; line-height:1.6">ПРОЦЕСС</p>
+      <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(100px,10vw,160px); color:#FF6B2C; line-height:0.85; margin-bottom:12px">3</div>
+      <div style="font-family:'Pixelify Sans',sans-serif; font-size:18px; color:rgba(255,255,255,0.35); line-height:1.5">простых<br>шага к заказу</div>
+    </div>
+    <div>
+      <div style="border-top:2px solid rgba(255,255,255,0.1); padding:36px 0">
+        <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:#FF6B2C; margin-bottom:20px; line-height:1.6">01</div>
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(22px,2.5vw,34px); color:#fff; margin-bottom:16px">Сканирование QR</h3>
+        <p style="font-size:15px; line-height:1.8; color:rgba(255,255,255,0.6); max-width:52ch">Гость сканирует QR-код камерой смартфона без загрузки приложений. Один клик — меню открыто.</p>
+      </div>
+      <div style="border-top:2px solid rgba(255,255,255,0.1); padding:36px 0">
+        <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:#FF6B2C; margin-bottom:20px; line-height:1.6">02</div>
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(22px,2.5vw,34px); color:#fff; margin-bottom:16px">Открытие меню</h3>
+        <p style="font-size:15px; line-height:1.8; color:rgba(255,255,255,0.6); max-width:52ch">Онлайн-меню с аппетитными фото блюд, описаниями и ценами. Удобная навигация по категориям.</p>
+      </div>
+      <div style="border-top:2px solid rgba(255,255,255,0.1); border-bottom:2px solid rgba(255,255,255,0.1); padding:36px 0">
+        <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:#FF6B2C; margin-bottom:20px; line-height:1.6">03</div>
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(22px,2.5vw,34px); color:#fff; margin-bottom:16px">Заказ</h3>
+        <p style="font-size:15px; line-height:1.8; color:rgba(255,255,255,0.6); max-width:52ch">Гость выбирает блюда и оформляет заказ прямо в браузере. Онлайн-оплата — опционально.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS — Карточки с визуалом, белый -->
+<section id="prem" style="background:#fff; padding:56px clamp(24px,5vw,120px); border-bottom:3px solid #0F0B07">
+  <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:48px; flex-wrap:wrap; gap:16px">
+    <div>
+      <p style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:#FF6B2C; margin-bottom:14px; line-height:1.6">ВЫГОДА</p>
+      <h2 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(28px,3.5vw,52px); color:#0F0B07; line-height:1.1">Что получает ресторан</h2>
+    </div>
+    <a href="#contact" style="background:#FF6B2C; color:#fff; padding:14px 28px; font-weight:700; font-size:13px; text-decoration:none; flex-shrink:0; box-shadow:4px 4px 0 #D4500A; font-family:Manrope,sans-serif">Оставить заявку</a>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px; background:#0F0B07; border:3px solid #0F0B07">
+    <!-- Card 1 -->
+    <div style="background:#fff">
+      <div style="background:#FFF0E8; height:160px; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #0F0B07">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="image-rendering:pixelated; shape-rendering:crispEdges">
+          <rect x="4" y="16" width="56" height="8" fill="#FF6B2C"/>
+          <rect x="4" y="28" width="56" height="8" fill="#FF6B2C"/>
+          <rect x="4" y="40" width="36" height="8" fill="#FF6B2C"/>
+        </svg>
+      </div>
+      <div style="padding:24px 28px">
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:17px; color:#0F0B07; margin-bottom:8px">Экономия на печати</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(15,11,7,0.52)">Меняете цены — никакой типографии. Изменения за минуты.</p>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div style="background:#fff">
+      <div style="background:#FFF0E8; height:160px; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #0F0B07">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="image-rendering:pixelated; shape-rendering:crispEdges">
+          <rect x="4" y="48" width="10" height="12" fill="#FF6B2C"/>
+          <rect x="18" y="36" width="10" height="24" fill="#FF6B2C"/>
+          <rect x="32" y="24" width="10" height="36" fill="#FF6B2C"/>
+          <rect x="46" y="12" width="10" height="48" fill="#FF6B2C"/>
+          <rect x="46" y="12" width="14" height="6" fill="#0F0B07"/>
+          <rect x="54" y="12" width="6" height="14" fill="#0F0B07"/>
+        </svg>
+      </div>
+      <div style="padding:24px 28px">
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:17px; color:#0F0B07; margin-bottom:8px">Рост среднего чека</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(15,11,7,0.52)">Аппетитные фото стимулируют заказы. Рост продаж до 40%.</p>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div style="background:#fff">
+      <div style="background:#FFF0E8; height:160px; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #0F0B07">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="image-rendering:pixelated; shape-rendering:crispEdges">
+          <rect x="8" y="8" width="48" height="48" fill="none" stroke="#FF6B2C" stroke-width="6"/>
+          <rect x="20" y="32" width="24" height="6" fill="#FF6B2C"/>
+          <rect x="32" y="20" width="6" height="24" fill="#FF6B2C"/>
+          <rect x="2" y="29" width="10" height="6" fill="#FF6B2C"/>
+          <rect x="52" y="29" width="10" height="6" fill="#FF6B2C"/>
+        </svg>
+      </div>
+      <div style="padding:24px 28px">
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:17px; color:#0F0B07; margin-bottom:8px">Многоязычность</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(15,11,7,0.52)">Русский, казахский, английский и другие языки.</p>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div style="background:#fff">
+      <div style="background:#FFF0E8; height:160px; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #0F0B07">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="image-rendering:pixelated; shape-rendering:crispEdges">
+          <rect x="4" y="14" width="56" height="36" fill="none" stroke="#FF6B2C" stroke-width="6"/>
+          <rect x="4" y="24" width="56" height="6" fill="#FF6B2C"/>
+          <rect x="12" y="36" width="14" height="6" fill="#FF6B2C"/>
+        </svg>
+      </div>
+      <div style="padding:24px 28px">
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:17px; color:#0F0B07; margin-bottom:8px">Онлайн-оплата</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(15,11,7,0.52)">Оплата через меню. Деньги мгновенно на счёт.</p>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div style="background:#fff">
+      <div style="background:#FFF0E8; height:160px; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #0F0B07">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="image-rendering:pixelated; shape-rendering:crispEdges">
+          <rect x="6" y="10" width="12" height="44" fill="#FF6B2C" opacity="0.4"/>
+          <rect x="26" y="24" width="12" height="30" fill="#FF6B2C" opacity="0.7"/>
+          <rect x="46" y="4" width="12" height="50" fill="#FF6B2C"/>
+        </svg>
+      </div>
+      <div style="padding:24px 28px">
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:17px; color:#0F0B07; margin-bottom:8px">Аналитика</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(15,11,7,0.52)">Поведение гостей — точная настройка рекламы.</p>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div style="background:#fff">
+      <div style="background:#FFF0E8; height:160px; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #0F0B07">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="image-rendering:pixelated; shape-rendering:crispEdges">
+          <rect x="20" y="4" width="24" height="8" fill="#FF6B2C"/>
+          <rect x="12" y="12" width="40" height="8" fill="#FF6B2C"/>
+          <rect x="8" y="20" width="48" height="8" fill="#FF6B2C"/>
+          <rect x="8" y="28" width="48" height="8" fill="#FF6B2C"/>
+          <rect x="12" y="36" width="40" height="8" fill="#FF6B2C"/>
+          <rect x="20" y="44" width="24" height="8" fill="#FF6B2C"/>
+          <rect x="24" y="52" width="16" height="6" fill="#FF6B2C"/>
+        </svg>
+      </div>
+      <div style="padding:24px 28px">
+        <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:17px; color:#0F0B07; margin-bottom:8px">Гигиеничность</h3>
+        <p style="font-size:13px; line-height:1.7; color:rgba(15,11,7,0.52)">QR-меню бесконтактно — каждый держит свой телефон.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY — Центрированный акцент, оранжевый -->
+<section style="background:#FF6B2C; padding:64px clamp(24px,5vw,120px); border-bottom:3px solid #D4500A">
+  <div style="text-align:center; max-width:760px; margin:0 auto 64px">
+    <p style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:rgba(255,255,255,0.6); margin-bottom:20px; line-height:1.4">РЕЗУЛЬТАТЫ КЛИЕНТОВ</p>
+    <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(80px,10vw,140px); color:#fff; line-height:0.85; margin-bottom:36px">+40%</div>
+    <p style="font-size:clamp(17px,1.8vw,22px); line-height:1.7; color:rgba(255,255,255,0.88); font-style:italic; margin-bottom:20px">"Внедрили за один день. Уже в первую неделю гости стали заказывать больше — фото блюд работают лучше любых слов."</p>
+    <span style="font-family:'Press Start 2P',monospace; font-size:7px; color:rgba(255,255,255,0.5); line-height:1.8">— Управляющий рестораном, Алматы</span>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px; background:rgba(0,0,0,0.2); border:3px solid rgba(0,0,0,0.2); margin-bottom:32px">
+    <div style="background:rgba(0,0,0,0.12); padding:32px 24px; text-align:center">
+      <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(32px,3vw,48px); color:#fff; line-height:1">2 ч</div>
+      <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; color:rgba(255,255,255,0.65); margin-top:8px; line-height:1.4">до запуска</div>
+    </div>
+    <div style="background:rgba(0,0,0,0.12); padding:32px 24px; text-align:center">
+      <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(32px,3vw,48px); color:#fff; line-height:1">60%</div>
+      <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; color:rgba(255,255,255,0.65); margin-top:8px; line-height:1.4">визуалы</div>
+    </div>
+    <div style="background:rgba(0,0,0,0.12); padding:32px 24px; text-align:center">
+      <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(32px,3vw,48px); color:#fff; line-height:1">0</div>
+      <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; color:rgba(255,255,255,0.65); margin-top:8px; line-height:1.4">приложений</div>
+    </div>
+  </div>
+  <div style="text-align:center">
+    <a href="#contact" style="background:#fff; color:#FF6B2C; padding:16px 44px; font-weight:700; font-size:15px; text-decoration:none; display:inline-block; box-shadow:4px 4px 0 #D4500A; font-family:Manrope,sans-serif">Увеличить продажи</a>
+  </div>
+</section>
+
+<!-- FAQ — Центрированный, кремовый -->
+<section id="faq" style="background:#F8F4F0; padding:64px clamp(24px,5vw,120px); border-bottom:3px solid #0F0B07">
+  <div style="text-align:center; margin-bottom:60px">
+    <p style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:#FF6B2C; margin-bottom:14px; line-height:1.6">ВОПРОСЫ</p>
+    <h2 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(28px,3.5vw,52px); color:#0F0B07; line-height:1.1">Часто задаваемые вопросы</h2>
+  </div>
+  <div style="max-width:720px; margin:0 auto; border-top:2px solid rgba(15,11,7,0.1)">
+    <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="5">
+      <div style="border-bottom:2px solid rgba(15,11,7,0.1)">
+        <button onClick="{{ item.toggle }}" style="width:100%; background:none; border:none; padding:26px 0; display:flex; justify-content:space-between; align-items:center; gap:20px; cursor:pointer; text-align:left; font-family:Manrope,sans-serif">
+          <span style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:16px; color:#0F0B07; line-height:1.4">{{ item.q }}</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0; image-rendering:pixelated; shape-rendering:crispEdges"><rect x="0" y="6" width="16" height="4" fill="#FF6B2C"/><rect x="6" y="0" width="4" height="16" fill="#FF6B2C"/></svg>
+        </button>
+        <sc-if value="{{ item.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 0 26px; font-size:14px; line-height:1.8; color:rgba(15,11,7,0.65)">{{ item.a }}</div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+  <div style="text-align:center; margin-top:52px">
+    <a href="#contact" style="background:#FF6B2C; color:#fff; padding:16px 44px; font-weight:700; font-size:14px; text-decoration:none; display:inline-block; box-shadow:4px 4px 0 #D4500A; font-family:Manrope,sans-serif">Оставить заявку</a>
+  </div>
+</section>
+
+<!-- FORM — 50/50, белый -->
+<section id="contact" style="background:#fff; padding:56px clamp(24px,5vw,120px); border-bottom:3px solid #0F0B07">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center">
+    <div>
+      <p style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:#FF6B2C; margin-bottom:14px; line-height:1.6">СТАРТ</p>
+      <h2 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:clamp(28px,3.5vw,52px); color:#0F0B07; line-height:1.1; margin-bottom:20px">Оставьте заявку</h2>
+      <p style="font-size:16px; color:rgba(15,11,7,0.45); line-height:1.7; margin-bottom:40px">Ответим в течение 30 минут и запустим меню за 2 часа.</p>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <a href="tel:+77077349189" style="display:flex; align-items:center; gap:12px; text-decoration:none; padding:16px 20px; border:2px solid #0F0B07; background:#fff; box-shadow:3px 3px 0 #0F0B07">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="shape-rendering:crispEdges"><path d="M3 3h4l1.5 4-2 1.5c1 2 2.5 3.5 4.5 4.5L12.5 11l4 1.5V17c-7.5 1-14-5.5-13-14z" stroke="#FF6B2C" stroke-width="1.5" stroke-linecap="square"/></svg>
+          <span style="font-size:14px; font-weight:600; color:rgba(15,11,7,0.65); font-family:Manrope,sans-serif">+7 707 734 91 89</span>
+        </a>
+        <a href="https://t.me/qujnk" target="_blank" style="display:flex; align-items:center; gap:12px; text-decoration:none; padding:16px 20px; border:2px solid #0F0B07; background:#fff; box-shadow:3px 3px 0 #0F0B07">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="shape-rendering:crispEdges"><path d="M16 2L1 7.5l5.5 2.5L16 2z" stroke="#FF6B2C" stroke-width="1.5" stroke-linejoin="miter"/><path d="M6.5 10L8.5 16l3-4.5 4.5-9.5" stroke="#FF6B2C" stroke-width="1.5" stroke-linecap="square"/></svg>
+          <span style="font-size:14px; font-weight:600; color:rgba(15,11,7,0.65); font-family:Manrope,sans-serif">Telegram: @qujnk</span>
+        </a>
+        <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="display:flex; align-items:center; gap:12px; text-decoration:none; padding:16px 20px; border:2px solid #0F0B07; background:#fff; box-shadow:3px 3px 0 #0F0B07">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="shape-rendering:crispEdges"><rect x="2" y="2" width="14" height="14" stroke="#FF6B2C" stroke-width="1.5"/><rect x="5.5" y="5.5" width="7" height="7" stroke="#FF6B2C" stroke-width="1.5"/><rect x="12" y="3" width="2" height="2" fill="#FF6B2C"/></svg>
+          <span style="font-size:14px; font-weight:600; color:rgba(15,11,7,0.65); font-family:Manrope,sans-serif">Instagram: @tyomavtemu</span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <sc-if value="{{ formSubmitted }}" hint-placeholder-val="{{ false }}">
+        <div style="border:2px solid #FF6B2C; padding:52px 40px; text-align:center; box-shadow:4px 4px 0 #FF6B2C">
+          <div style="font-family:Manrope,sans-serif; font-size:13px; font-weight:700; letter-spacing:3px; color:#FF6B2C; line-height:1.4; margin-bottom:16px">ГОТОВО!</div>
+          <h3 style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:22px; color:#0F0B07; margin-bottom:12px">Заявка отправлена!</h3>
+          <p style="font-size:14px; color:rgba(15,11,7,0.45); line-height:1.7; margin-bottom:28px">Артём свяжется с вами в ближайшее время.</p>
+          <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap">
+            <a href="https://api.whatsapp.com/send/?phone=77077349189" target="_blank" style="background:#25D366; color:#fff; padding:11px 22px; font-weight:700; font-size:13px; text-decoration:none; box-shadow:3px 3px 0 #1a9e48; font-family:Manrope,sans-serif">WhatsApp</a>
+            <a href="https://t.me/qujnk" target="_blank" style="background:#229ED9; color:#fff; padding:11px 22px; font-weight:700; font-size:13px; text-decoration:none; box-shadow:3px 3px 0 #1878a0; font-family:Manrope,sans-serif">Telegram</a>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onSubmit }}" style="border:2px solid #0F0B07; padding:40px; box-shadow:4px 4px 0 #0F0B07">
+          <div style="display:flex; flex-direction:column; gap:16px">
+            <div>
+              <label style="display:block; font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(15,11,7,0.45); margin-bottom:8px; line-height:1.4">ИМЯ *</label>
+              <input type="text" value="{{ formName }}" onChange="{{ setName }}" placeholder="Ваше имя" required style="width:100%; background:#F8F4F0; border:2px solid rgba(15,11,7,0.2); color:#0F0B07; padding:13px 16px; font-family:Manrope,sans-serif; font-size:14px;" style-focus="border-color:#FF6B2C; outline:none;"/>
+            </div>
+            <div>
+              <label style="display:block; font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(15,11,7,0.45); margin-bottom:8px; line-height:1.4">ТЕЛЕФОН *</label>
+              <input type="tel" value="{{ formPhone }}" onChange="{{ setPhone }}" placeholder="+7 (___) ___ __ __" required style="width:100%; background:#F8F4F0; border:2px solid rgba(15,11,7,0.2); color:#0F0B07; padding:13px 16px; font-family:Manrope,sans-serif; font-size:14px;" style-focus="border-color:#FF6B2C; outline:none;"/>
+            </div>
+            <div>
+              <label style="display:block; font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; color:rgba(15,11,7,0.45); margin-bottom:8px; line-height:1.4">РЕСТОРАН</label>
+              <input type="text" value="{{ formRestaurant }}" onChange="{{ setRestaurant }}" placeholder="Название заведения" style="width:100%; background:#F8F4F0; border:2px solid rgba(15,11,7,0.2); color:#0F0B07; padding:13px 16px; font-family:Manrope,sans-serif; font-size:14px;" style-focus="border-color:#FF6B2C; outline:none;"/>
+            </div>
+            <button type="submit" style="width:100%; background:#FF6B2C; color:#fff; border:none; padding:15px; font-weight:700; font-size:15px; cursor:pointer; font-family:Manrope,sans-serif; margin-top:4px; box-shadow:4px 4px 0 #D4500A">Оставить заявку</button>
+          </div>
+          <p style="font-size:11px; color:rgba(15,11,7,0.25); text-align:center; margin-top:14px; line-height:1.6; font-family:Manrope,sans-serif">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0F0B07; padding:56px clamp(24px,5vw,120px) 28px; border-top:4px solid #FF6B2C">
+  <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px">
+    <div>
+      <div style="display:flex; align-items:center; gap:11px; margin-bottom:16px">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="image-rendering:pixelated; shape-rendering:crispEdges">
+          <rect x="0" y="0" width="8" height="4" fill="#FF6B2C"/>
+          <rect x="0" y="0" width="4" height="8" fill="#FF6B2C"/>
+          <rect x="24" y="0" width="8" height="4" fill="#FF6B2C"/>
+          <rect x="28" y="0" width="4" height="8" fill="#FF6B2C"/>
+          <rect x="0" y="28" width="8" height="4" fill="#FF6B2C"/>
+          <rect x="0" y="24" width="4" height="8" fill="#FF6B2C"/>
+          <rect x="24" y="28" width="8" height="4" fill="#FF6B2C"/>
+          <rect x="28" y="24" width="4" height="8" fill="#FF6B2C"/>
+          <path d="M8 24L8 8L24 24L24 8" stroke="#FF6B2C" stroke-width="3" stroke-linecap="square"/>
+        </svg>
+        <div>
+          <div style="font-family:'Pixelify Sans',sans-serif; font-weight:700; font-size:14px; letter-spacing:2px; color:#fff">NOVIKOV</div>
+          <div style="font-family:'Press Start 2P',monospace; font-size:6px; color:rgba(255,255,255,0.28); line-height:1.6">STUDIO</div>
+        </div>
+      </div>
+      <p style="font-size:13px; line-height:1.7; color:rgba(255,255,255,0.28); max-width:26ch; font-family:Manrope,sans-serif">QR-меню для ресторанов и кафе Казахстана</p>
+    </div>
+    <div>
+      <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:rgba(255,255,255,0.3); margin-bottom:16px; line-height:1.4">НАВИГАЦИЯ</div>
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <a href="#how" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px; font-family:Manrope,sans-serif">Как работает</a>
+        <a href="#prem" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px; font-family:Manrope,sans-serif">Преимущества</a>
+        <a href="#faq" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px; font-family:Manrope,sans-serif">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:rgba(255,255,255,0.3); margin-bottom:16px; line-height:1.4">КОНТАКТЫ</div>
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <a href="tel:+77077349189" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px; font-family:Manrope,sans-serif">+7 707 734 91 89</a>
+        <a href="https://t.me/qujnk" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px; font-family:Manrope,sans-serif">@qujnk</a>
+        <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px; font-family:Manrope,sans-serif">@tyomavtemu</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:Manrope,sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:rgba(255,255,255,0.3); margin-bottom:16px; line-height:1.4">СОЦСЕТИ</div>
+      <div style="display:flex; gap:10px">
+        <a href="https://www.instagram.com/tyomavtemu" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="shape-rendering:crispEdges"><rect x="2" y="2" width="12" height="12" stroke="rgba(255,255,255,0.42)" stroke-width="2"/><rect x="5" y="5" width="6" height="6" stroke="rgba(255,255,255,0.42)" stroke-width="1.5"/><rect x="11" y="3" width="2" height="2" fill="rgba(255,255,255,0.42)"/></svg>
+        </a>
+        <a href="https://t.me/qujnk" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="shape-rendering:crispEdges"><path d="M14 2L1 7l5 2L14 2z" stroke="rgba(255,255,255,0.42)" stroke-width="1.5" stroke-linejoin="miter"/><path d="M6 9L7.5 14l2.5-4 4-8" stroke="rgba(255,255,255,0.42)" stroke-width="1.5" stroke-linecap="square"/></svg>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=77077349189" target="_blank" style="width:36px; height:36px; background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="shape-rendering:crispEdges"><rect x="1" y="1" width="14" height="14" stroke="rgba(255,255,255,0.42)" stroke-width="2"/><path d="M5 8.5c.6 1.2 1.6 2 2.8 2s1.8-.8 1.8-1.5c0-.5-.4-.8-1.1-1.1L8 7.7c-.4-.2-.5-.4-.4-.7.2-.4.5-1 .3-1.4-.4-.6-1.3-.8-2-.3-.4.3-.7.8-.7 1.4" stroke="rgba(255,255,255,0.38)" stroke-width="1.5" stroke-linecap="square"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:2px solid rgba(255,255,255,0.06); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px">
+    <span style="font-family:Manrope,sans-serif; font-size:12px; font-weight:600; letter-spacing:2px; color:rgba(255,255,255,0.25); line-height:1.4">© 2024 NOVIKOV STUDIO</span>
+    <span style="font-family:Manrope,sans-serif; font-size:12px; font-weight:600; letter-spacing:2px; color:rgba(255,255,255,0.18); line-height:1.4">КАЗАХСТАН</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    faqOpen: null,
+    formName: '',
+    formPhone: '',
+    formRestaurant: '',
+    formSubmitted: false,
+    isMobile: false
+  };
+
+  componentDidMount() {
+    const check = () => this.setState({ isMobile: window.innerWidth < 900 });
+    check();
+    window.addEventListener('resize', check);
+  }
+
+  renderVals() {
+    const { faqOpen, formSubmitted, formName, formPhone, formRestaurant, isMobile } = this.state;
+
+    const faqData = [
+      { q: 'Как создаётся QR-код для меню?', a: 'Novikov Studio создаёт электронный QR-код автоматически при подключении к сервису. Вам останется только распечатать код и разместить на столиках. Всё остальное берём на себя.' },
+      { q: 'Можно ли использовать QR-меню как сайт ресторана?', a: 'Да! QR-меню настраивается как полноценный сайт вашего заведения — с описанием, контактами, адресом и функцией онлайн-заказа.' },
+      { q: 'Смогут ли гости делать предзаказ через QR-меню?', a: 'Да. Гость выбирает блюда заранее, оплачивает онлайн и приходит к уже накрытому столу — без звонков и переписки.' },
+      { q: 'Какие выгоды получит мой ресторан?', a: 'Экономия на печати, рост среднего чека за счёт фото, аналитика по гостям, мгновенное обновление цен. Средний рост продаж — 20–40%.' },
+      { q: 'Сколько стоит QR-меню от Novikov Studio?', a: 'Оставьте заявку — менеджер Артём свяжется с вами и подберёт тариф. Разработка меню — 2 часа после получения материалов.' }
+    ];
+
+    const faqItems = faqData.map((item, i) => ({
+      q: item.q,
+      a: item.a,
+      isOpen: faqOpen === i,
+      toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? null : i }))
+    }));
+
+    return {
+      navLinksStyle: isMobile
+        ? { display: 'none' }
+        : { display: 'flex', gap: '32px', alignItems: 'center' },
+      faqItems,
+      formName, formPhone, formRestaurant, formSubmitted,
+      showForm: !formSubmitted,
+      setName: (e) => this.setState({ formName: e.target.value }),
+      setPhone: (e) => this.setState({ formPhone: e.target.value }),
+      setRestaurant: (e) => this.setState({ formRestaurant: e.target.value }),
+      onSubmit: (e) => { e.preventDefault(); this.setState({ formSubmitted: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
