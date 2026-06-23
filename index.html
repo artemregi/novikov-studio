@@ -34,31 +34,21 @@
     nav > div { padding: 0 20px !important; height: 52px !important; }
     nav { position: sticky !important; top: 0; }
 
-    /* Hero */
-    .hero-pt { padding-top: 0 !important; }
-    .hero-grid { grid-template-columns: 1fr 1fr !important; gap: 16px !important; padding: 24px 16px 0 !important; }
-
-    /* Scale down left side text */
-    .hero-h1 { font-size: 18px !important; letter-spacing: -0.5px !important; margin-bottom: 12px !important; }
+    /* Hero — stack to single column on mobile */
+    .hero-pt { height: auto !important; min-height: 100vh !important; grid-template-columns: 1fr !important; padding-top: 52px !important; }
+    .hero-left { padding: 32px 20px 24px !important; }
+    .hero-h1 { font-size: 26px !important; letter-spacing: -1px !important; margin-bottom: 14px !important; }
     .hero-card-badge { display: none !important; }
-    .hero-p { font-size: 11px !important; line-height: 1.5 !important; margin-bottom: 14px !important; }
-    .hero-cta { padding: 10px 14px !important; font-size: 11px !important; gap: 5px !important; border-radius: 30px !important; }
-    .hero-cta svg { width: 12px !important; height: 12px !important; }
+    .hero-p { font-size: 14px !important; line-height: 1.6 !important; margin-bottom: 20px !important; }
+    .hero-cta { padding: 14px 24px !important; font-size: 13px !important; }
 
-    /* Phone mockup — scaled down */
-    .hero-phone-wrap { min-height: 280px !important; }
-    .phone-blob { width: 170px !important; height: 170px !important; border-radius: 24px !important; }
-    .phone-shell { width: 110px !important; height: 224px !important; border-radius: 20px !important; padding: 2px !important; }
-    .phone-inner { border-radius: 18px !important; }
-    .phone-img-area { height: 52px !important; }
-    .phone-items-wrap { gap: 3px !important; padding: 3px 8px !important; }
-    .phone-item-thumb { width: 22px !important; height: 22px !important; border-radius: 4px !important; }
-    .phone-item-plus { width: 12px !important; height: 12px !important; font-size: 9px !important; }
-    /* Floating QR — small */
-    .float-qr { left: 0 !important; top: 16px !important; padding: 7px !important; border-radius: 10px !important; }
-    .float-qr svg { width: 28px !important; height: 28px !important; }
-    .float-qr-label { font-size: 6px !important; margin-top: 3px !important; }
-    /* Hide wide floating cards */
+    /* Phone area on mobile */
+    .hero-phone-wrap { height: 340px !important; }
+    .phone-shell { height: 280px !important; border-radius: 28px !important; }
+    .phone-inner { border-radius: 26px !important; }
+    .float-qr { left: calc(50% - 170px) !important; top: calc(50% - 170px) !important; padding: 8px !important; border-radius: 12px !important; }
+    .float-qr svg { width: 36px !important; height: 36px !important; }
+    .float-qr-label { font-size: 8px !important; }
     .float-card1, .float-card2 { display: none !important; }
 
     /* Sections */
@@ -81,9 +71,8 @@
     nav > div { padding: 0 24px !important; gap: 16px !important; }
     .nav-links { gap: 18px !important; }
     .nav-links a { font-size: 13px !important; }
-    .hero-grid { padding: 40px 24px !important; gap: 28px !important; }
+    .hero-left { padding: 40px 24px 40px 4% !important; }
     .float-card1, .float-card2 { display: none !important; }
-    .float-qr { left: -4px !important; }
     .section-pad { padding: 60px 24px !important; }
     .how-grid { gap: 14px !important; }
     .scenarios-grid { gap: 40px !important; }
@@ -123,117 +112,117 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero-pt" style="background:#EDEBE7; padding-top:68px; min-height:100vh; display:flex; align-items:center;">
-  <div class="hero-grid" style="max-width:1280px; margin:0 auto; width:100%; padding:60px 40px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+<section class="hero-pt" style="background:#EDEBE7; height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:68px; overflow:hidden;">
 
-    <!-- LEFT TEXT -->
-    <div style="min-width:0;">
-      <h1 class="hero-h1" style="font-size:clamp(36px,4.5vw,64px); font-weight:800; line-height:1.08; letter-spacing:-1.5px; color:#1A1714; margin-bottom:20px;">
-        QR-меню для вашего ресторана<br><span style="color:#FF6B2C;">за 2 часа</span>
-      </h1>
-      <div class="hero-card-badge" style="display:inline-flex; align-items:center; gap:10px; background:#fff; border-radius:16px; padding:10px 14px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=48&h=48&fit=crop&auto=format" style="width:36px; height:36px; border-radius:10px; object-fit:cover;" alt="">
-        <div>
-          <div style="font-size:12px; font-weight:700; color:#1A1714; line-height:1.3;">Том ям с креветками</div>
-          <div style="font-size:11px; color:rgba(26,23,20,0.45); line-height:1.4;">⭐ 4.8 · 1 490 ₸</div>
-        </div>
+  <!-- LEFT TEXT — full height, vertically centered -->
+  <div class="hero-left" style="display:flex; flex-direction:column; justify-content:center; padding:60px 40px 60px 7%; min-width:0;">
+    <h1 class="hero-h1" style="font-size:clamp(28px,3.8vw,62px); font-weight:800; line-height:1.06; letter-spacing:-2px; color:#1A1714; margin-bottom:24px;">
+      QR-меню для вашего ресторана<br><span style="color:#FF6B2C;">за 2 часа</span>
+    </h1>
+    <div class="hero-card-badge" style="display:inline-flex; align-items:center; gap:10px; background:#fff; border-radius:16px; padding:10px 14px; margin-bottom:24px; box-shadow:0 4px 20px rgba(0,0,0,0.08); align-self:flex-start;">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=48&h=48&fit=crop&auto=format" style="width:36px; height:36px; border-radius:10px; object-fit:cover;" alt="">
+      <div>
+        <div style="font-size:12px; font-weight:700; color:#1A1714; line-height:1.3;">Том ям с креветками</div>
+        <div style="font-size:11px; color:rgba(26,23,20,0.45); line-height:1.4;">⭐ 4.8 · 1 490 ₸</div>
       </div>
-      <p class="hero-p" style="font-size:17px; line-height:1.7; color:rgba(26,23,20,0.58); margin-bottom:32px; max-width:44ch;">
-        Оставьте заявку — мы разработаем онлайн-меню для вашего бара, кафе или ресторана. Гости сканируют и заказывают без приложений.
-      </p>
-      <a href="#contact" class="hero-cta" style="display:inline-flex; align-items:center; gap:10px; background:#FF6B2C; color:#fff; padding:18px 36px; border-radius:50px; font-weight:700; font-size:16px; text-decoration:none; box-shadow:0 8px 30px rgba(255,107,44,0.35);">
-        Получить меню за 2 часа
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
     </div>
+    <p class="hero-p" style="font-size:clamp(14px,1.4vw,18px); line-height:1.7; color:rgba(26,23,20,0.58); margin-bottom:36px; max-width:42ch;">
+      Оставьте заявку — мы разработаем онлайн-меню для вашего бара, кафе или ресторана. Гости сканируют и заказывают без приложений.
+    </p>
+    <a href="#contact" class="hero-cta" style="display:inline-flex; align-items:center; gap:10px; background:#FF6B2C; color:#fff; padding:18px 36px; border-radius:50px; font-weight:700; font-size:clamp(13px,1.2vw,16px); text-decoration:none; box-shadow:0 8px 30px rgba(255,107,44,0.35); align-self:flex-start;">
+      Получить меню за 2 часа
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
 
-    <!-- RIGHT PHONE MOCKUP -->
-    <div class="hero-phone-wrap" style="position:relative; display:flex; justify-content:center; align-items:center; height:clamp(500px, calc(100vh - 180px), 720px); min-width:0;">
-      <div class="phone-blob" style="position:absolute; width:480px; height:480px; background:#FFD4B8; border-radius:60px; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
-      <div class="phone-shell" style="position:relative; z-index:2; width:300px; height:620px; background:#1A1714; border-radius:44px; padding:3px; box-shadow:0 40px 100px rgba(0,0,0,0.3);">
-        <div class="phone-inner" style="width:100%; height:100%; background:#fff; border-radius:42px; overflow:hidden;">
-          <div style="background:#fff; padding:14px 24px 8px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:13px; font-weight:700; color:#1A1714;">16:05</span>
-            <div style="width:90px; height:14px; background:#1A1714; border-radius:7px;"></div>
-            <span style="font-size:12px; color:#1A1714;">●●●</span>
+  <!-- RIGHT — phone fills full right half -->
+  <div class="hero-phone-wrap" style="position:relative; display:flex; justify-content:center; align-items:center; overflow:visible;">
+    <!-- decorative blob -->
+    <div class="phone-blob" style="position:absolute; width:min(500px,80%); aspect-ratio:1; background:#FFD4B8; border-radius:60px; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+    <!-- phone shell — scales with viewport height -->
+    <div class="phone-shell" style="position:relative; z-index:2; height:min(640px, calc(100vh - 160px)); width:auto; aspect-ratio:300/620; background:#1A1714; border-radius:44px; padding:3px; box-shadow:0 40px 100px rgba(0,0,0,0.3);">
+      <div class="phone-inner" style="width:100%; height:100%; background:#fff; border-radius:42px; overflow:hidden; display:flex; flex-direction:column;">
+        <div style="background:#fff; padding:14px 24px 8px; display:flex; justify-content:space-between; align-items:center; flex-shrink:0;">
+          <span style="font-size:13px; font-weight:700; color:#1A1714;">16:05</span>
+          <div style="width:90px; height:14px; background:#1A1714; border-radius:7px;"></div>
+          <span style="font-size:12px; color:#1A1714;">●●●</span>
+        </div>
+        <div style="padding:10px 20px 12px; border-bottom:1px solid #f0f0f0; flex-shrink:0;">
+          <div style="font-size:16px; font-weight:800; color:#1A1714; text-align:center;">Pizza House</div>
+        </div>
+        <div class="phone-img-area" style="flex:0 0 24%; overflow:hidden; position:relative;">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop&auto=format" style="width:100%; height:100%; object-fit:cover;" alt="">
+          <div style="position:absolute; bottom:10px; left:12px; background:#FF6B2C; color:#fff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:5px;">NEW</div>
+        </div>
+        <div style="padding:12px 20px 8px; flex-shrink:0;">
+          <div style="font-size:14px; font-weight:800; color:#1A1714; margin-bottom:10px;">Меню ресторана</div>
+          <div style="display:flex; gap:8px; overflow:hidden;">
+            <div style="background:#FF6B2C; color:#fff; font-size:11px; font-weight:700; padding:6px 14px; border-radius:20px; white-space:nowrap;">Пицца</div>
+            <div style="background:#f2f2f2; color:#666; font-size:11px; font-weight:600; padding:6px 14px; border-radius:20px; white-space:nowrap;">Донер</div>
+            <div style="background:#f2f2f2; color:#666; font-size:11px; font-weight:600; padding:6px 14px; border-radius:20px; white-space:nowrap;">Соусы</div>
           </div>
-          <div style="padding:10px 20px 12px; border-bottom:1px solid #f0f0f0;">
-            <div style="font-size:16px; font-weight:800; color:#1A1714; text-align:center;">Pizza House</div>
-          </div>
-          <div class="phone-img-area" style="height:150px; overflow:hidden; position:relative;">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop&auto=format" style="width:100%; height:100%; object-fit:cover;" alt="">
-            <div style="position:absolute; bottom:10px; left:12px; background:#FF6B2C; color:#fff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:5px;">NEW</div>
-          </div>
-          <div style="padding:14px 20px 8px;">
-            <div style="font-size:14px; font-weight:800; color:#1A1714; margin-bottom:10px;">Меню ресторана</div>
-            <div style="display:flex; gap:8px; overflow:hidden;">
-              <div style="background:#FF6B2C; color:#fff; font-size:11px; font-weight:700; padding:6px 14px; border-radius:20px; white-space:nowrap;">Пицца</div>
-              <div style="background:#f2f2f2; color:#666; font-size:11px; font-weight:600; padding:6px 14px; border-radius:20px; white-space:nowrap;">Донер</div>
-              <div style="background:#f2f2f2; color:#666; font-size:11px; font-weight:600; padding:6px 14px; border-radius:20px; white-space:nowrap;">Соусы</div>
+        </div>
+        <div class="phone-items-wrap" style="padding:6px 20px; display:flex; flex-direction:column; gap:8px; flex:1; overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:12px; background:#fafafa; border-radius:14px; padding:10px;">
+            <img class="phone-item-thumb" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=80&h=80&fit=crop&auto=format" style="width:50px; height:50px; border-radius:10px; object-fit:cover;" alt="">
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:12px; font-weight:700; color:#1A1714;">Четыре сыра</div>
+              <div style="font-size:10px; color:rgba(26,23,20,0.45);">Моцарелла, чеддер</div>
+              <div style="font-size:12px; font-weight:800; color:#FF6B2C; margin-top:2px;">1 290 ₸</div>
+            </div>
+            <div class="phone-item-plus" style="width:26px; height:26px; background:#FF6B2C; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <span style="color:#fff; font-size:18px; line-height:1;">+</span>
             </div>
           </div>
-          <div class="phone-items-wrap" style="padding:8px 20px; display:flex; flex-direction:column; gap:10px;">
-            <div style="display:flex; align-items:center; gap:12px; background:#fafafa; border-radius:14px; padding:10px;">
-              <img class="phone-item-thumb" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=80&h=80&fit=crop&auto=format" style="width:54px; height:54px; border-radius:10px; object-fit:cover;" alt="">
-              <div style="flex:1; min-width:0;">
-                <div style="font-size:13px; font-weight:700; color:#1A1714;">Четыре сыра</div>
-                <div style="font-size:11px; color:rgba(26,23,20,0.45);">Моцарелла, чеддер</div>
-                <div style="font-size:13px; font-weight:800; color:#FF6B2C; margin-top:3px;">1 290 ₸</div>
-              </div>
-              <div class="phone-item-plus" style="width:28px; height:28px; background:#FF6B2C; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                <span style="color:#fff; font-size:20px; line-height:1;">+</span>
-              </div>
+          <div style="display:flex; align-items:center; gap:12px; background:#fafafa; border-radius:14px; padding:10px;">
+            <img class="phone-item-thumb" src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=80&h=80&fit=crop&auto=format" style="width:50px; height:50px; border-radius:10px; object-fit:cover;" alt="">
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:12px; font-weight:700; color:#1A1714;">Пепперони</div>
+              <div style="font-size:10px; color:rgba(26,23,20,0.45);">Салями, томат</div>
+              <div style="font-size:12px; font-weight:800; color:#FF6B2C; margin-top:2px;">1 490 ₸</div>
             </div>
-            <div style="display:flex; align-items:center; gap:12px; background:#fafafa; border-radius:14px; padding:10px;">
-              <img class="phone-item-thumb" src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=80&h=80&fit=crop&auto=format" style="width:54px; height:54px; border-radius:10px; object-fit:cover;" alt="">
-              <div style="flex:1; min-width:0;">
-                <div style="font-size:13px; font-weight:700; color:#1A1714;">Пепперони</div>
-                <div style="font-size:11px; color:rgba(26,23,20,0.45);">Салями, томат</div>
-                <div style="font-size:13px; font-weight:800; color:#FF6B2C; margin-top:3px;">1 490 ₸</div>
-              </div>
-              <div class="phone-item-plus" style="width:28px; height:28px; background:#f0f0f0; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                <span style="color:#999; font-size:20px; line-height:1;">+</span>
-              </div>
+            <div class="phone-item-plus" style="width:26px; height:26px; background:#f0f0f0; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <span style="color:#999; font-size:18px; line-height:1;">+</span>
             </div>
-            <div style="display:flex; align-items:center; gap:12px; background:#fafafa; border-radius:14px; padding:10px;">
-              <img class="phone-item-thumb" src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=80&h=80&fit=crop&auto=format" style="width:54px; height:54px; border-radius:10px; object-fit:cover;" alt="">
-              <div style="flex:1; min-width:0;">
-                <div style="font-size:13px; font-weight:700; color:#1A1714;">Маргарита</div>
-                <div style="font-size:11px; color:rgba(26,23,20,0.45);">Томат, базилик</div>
-                <div style="font-size:13px; font-weight:800; color:#FF6B2C; margin-top:3px;">990 ₸</div>
-              </div>
-              <div class="phone-item-plus" style="width:28px; height:28px; background:#f0f0f0; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                <span style="color:#999; font-size:20px; line-height:1;">+</span>
-              </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px; background:#fafafa; border-radius:14px; padding:10px;">
+            <img class="phone-item-thumb" src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=80&h=80&fit=crop&auto=format" style="width:50px; height:50px; border-radius:10px; object-fit:cover;" alt="">
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:12px; font-weight:700; color:#1A1714;">Маргарита</div>
+              <div style="font-size:10px; color:rgba(26,23,20,0.45);">Томат, базилик</div>
+              <div style="font-size:12px; font-weight:800; color:#FF6B2C; margin-top:2px;">990 ₸</div>
+            </div>
+            <div class="phone-item-plus" style="width:26px; height:26px; background:#f0f0f0; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <span style="color:#999; font-size:18px; line-height:1;">+</span>
             </div>
           </div>
         </div>
       </div>
-      <!-- Floating QR -->
-      <div class="float-qr" style="position:absolute; left:-20px; top:80px; background:#fff; border-radius:20px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatA 4s ease-in-out infinite; z-index:3;">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="display:block;">
-          <rect x="4" y="4" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="8" y="8" width="16" height="16" rx="1" fill="#fff"/><rect x="11" y="11" width="10" height="10" rx="1" fill="#FF6B2C"/>
-          <rect x="36" y="4" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="40" y="8" width="16" height="16" rx="1" fill="#fff"/><rect x="43" y="11" width="10" height="10" rx="1" fill="#FF6B2C"/>
-          <rect x="4" y="36" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="8" y="40" width="16" height="16" rx="1" fill="#fff"/><rect x="11" y="43" width="10" height="10" rx="1" fill="#FF6B2C"/>
-          <rect x="36" y="36" width="8" height="8" fill="#FF6B2C"/><rect x="48" y="36" width="8" height="8" fill="#FF6B2C"/><rect x="36" y="48" width="8" height="8" fill="#FF6B2C"/><rect x="48" y="48" width="8" height="8" fill="#1A1714"/>
-        </svg>
-        <div class="float-qr-label" style="font-size:10px; font-weight:700; color:#1A1714; text-align:center; margin-top:8px;">Сканируй</div>
+    </div>
+    <!-- Floating QR — positioned relative to phone-wrap center -->
+    <div class="float-qr" style="position:absolute; left:calc(50% - 220px); top:calc(50% - 240px); background:#fff; border-radius:20px; padding:14px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatA 4s ease-in-out infinite; z-index:3;">
+      <svg width="56" height="56" viewBox="0 0 64 64" fill="none" style="display:block;">
+        <rect x="4" y="4" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="8" y="8" width="16" height="16" rx="1" fill="#fff"/><rect x="11" y="11" width="10" height="10" rx="1" fill="#FF6B2C"/>
+        <rect x="36" y="4" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="40" y="8" width="16" height="16" rx="1" fill="#fff"/><rect x="43" y="11" width="10" height="10" rx="1" fill="#FF6B2C"/>
+        <rect x="4" y="36" width="24" height="24" rx="3" fill="#FF6B2C"/><rect x="8" y="40" width="16" height="16" rx="1" fill="#fff"/><rect x="11" y="43" width="10" height="10" rx="1" fill="#FF6B2C"/>
+        <rect x="36" y="36" width="8" height="8" fill="#FF6B2C"/><rect x="48" y="36" width="8" height="8" fill="#FF6B2C"/><rect x="36" y="48" width="8" height="8" fill="#FF6B2C"/><rect x="48" y="48" width="8" height="8" fill="#1A1714"/>
+      </svg>
+      <div class="float-qr-label" style="font-size:10px; font-weight:700; color:#1A1714; text-align:center; margin-top:6px;">Сканируй</div>
+    </div>
+    <!-- Floating card 1 -->
+    <div class="float-card1" style="position:absolute; right:calc(50% - 240px); top:calc(50% - 220px); background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatB 3.5s ease-in-out infinite; z-index:3; width:148px;">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=100&fit=crop&auto=format" style="width:100%; height:70px; object-fit:cover; border-radius:10px; display:block; margin-bottom:8px;" alt="">
+      <div style="font-size:11px; font-weight:700; color:#1A1714;">Греческий салат</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+        <span style="font-size:11px; font-weight:800; color:#FF6B2C;">890 ₸</span>
+        <span style="font-size:10px; color:#FF6B2C;">★ 4.7</span>
       </div>
-      <!-- Floating card 1 -->
-      <div class="float-card1" style="position:absolute; right:-20px; top:90px; background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatB 3.5s ease-in-out infinite; z-index:3; width:155px;">
-        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=100&fit=crop&auto=format" style="width:100%; height:70px; object-fit:cover; border-radius:10px; display:block; margin-bottom:8px;" alt="">
-        <div style="font-size:11px; font-weight:700; color:#1A1714;">Греческий салат</div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
-          <span style="font-size:11px; font-weight:800; color:#FF6B2C;">890 ₸</span>
-          <span style="font-size:10px; color:#FF6B2C;">★ 4.7</span>
-        </div>
-      </div>
-      <!-- Floating card 2 -->
-      <div class="float-card2" style="position:absolute; right:-10px; bottom:90px; background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatC 5s ease-in-out infinite; z-index:3; width:145px;">
-        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=100&fit=crop&auto=format" style="width:100%; height:62px; object-fit:cover; border-radius:10px; display:block; margin-bottom:8px;" alt="">
-        <div style="font-size:11px; font-weight:700; color:#1A1714;">Pancakes</div>
-        <span style="font-size:11px; font-weight:800; color:#FF6B2C;">650 ₸</span>
-      </div>
+    </div>
+    <!-- Floating card 2 -->
+    <div class="float-card2" style="position:absolute; right:calc(50% - 240px); bottom:calc(50% - 260px); background:#fff; border-radius:16px; padding:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); animation:floatC 5s ease-in-out infinite; z-index:3; width:140px;">
+      <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=100&fit=crop&auto=format" style="width:100%; height:62px; object-fit:cover; border-radius:10px; display:block; margin-bottom:8px;" alt="">
+      <div style="font-size:11px; font-weight:700; color:#1A1714;">Pancakes</div>
+      <span style="font-size:11px; font-weight:800; color:#FF6B2C;">650 ₸</span>
     </div>
   </div>
 </section>
