@@ -34,21 +34,20 @@
     nav > div { padding: 0 20px !important; height: 52px !important; }
     nav { position: sticky !important; top: 0; }
 
-    /* Hero — stack to single column on mobile */
-    .hero-pt { height: auto !important; min-height: 100vh !important; grid-template-columns: 1fr !important; padding-top: 52px !important; }
-    .hero-left { padding: 32px 20px 24px !important; }
-    .hero-h1 { font-size: 26px !important; letter-spacing: -1px !important; margin-bottom: 14px !important; }
+    /* Hero — keep 2-column on mobile, scale down */
+    .hero-pt { height: 100vh !important; padding-top: 52px !important; }
+    .hero-left { padding: 20px 12px 20px 16px !important; justify-content: center !important; }
+    .hero-h1 { font-size: 16px !important; letter-spacing: -0.5px !important; margin-bottom: 10px !important; line-height: 1.2 !important; }
     .hero-card-badge { display: none !important; }
-    .hero-p { font-size: 14px !important; line-height: 1.6 !important; margin-bottom: 20px !important; }
-    .hero-cta { padding: 14px 24px !important; font-size: 13px !important; }
+    .hero-p { font-size: 11px !important; line-height: 1.5 !important; margin-bottom: 14px !important; max-width: none !important; }
+    .hero-cta { padding: 10px 14px !important; font-size: 11px !important; gap: 6px !important; }
+    .hero-cta svg { width: 12px !important; height: 12px !important; }
 
-    /* Phone area on mobile */
-    .hero-phone-wrap { height: 340px !important; }
-    .phone-shell { height: 280px !important; border-radius: 28px !important; }
-    .phone-inner { border-radius: 26px !important; }
-    .float-qr { left: calc(50% - 170px) !important; top: calc(50% - 170px) !important; padding: 8px !important; border-radius: 12px !important; }
-    .float-qr svg { width: 36px !important; height: 36px !important; }
-    .float-qr-label { font-size: 8px !important; }
+    /* Phone area on mobile — scaled down, stays on right */
+    .phone-blob { display: none !important; }
+    .phone-shell { height: min(260px, calc(100vh - 130px)) !important; border-radius: 20px !important; }
+    .phone-inner { border-radius: 18px !important; }
+    .float-qr { display: none !important; }
     .float-card1, .float-card2 { display: none !important; }
 
     /* Sections */
