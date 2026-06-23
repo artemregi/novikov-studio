@@ -87,30 +87,38 @@
     .nav-fixed { position:sticky; }
 
     .hero-section { padding-top:0; }
-    .hero-grid { grid-template-columns:1fr; gap:0; padding:28px 20px 0; }
+    /* Keep 2-column hero on mobile — text left, phone right */
+    .hero-grid { grid-template-columns:1fr 1fr; gap:12px; padding:20px 16px; }
     .hero-card-preview { display:none !important; }
 
-    .hero-phone { height:420px; margin-top:28px; padding-bottom:0; }
+    /* Scale down text */
+    .hero-grid h1 { font-size:20px !important; letter-spacing:-0.5px; margin-bottom:10px; }
+    .hero-grid p  { font-size:12px !important; line-height:1.5; margin-bottom:16px; }
+    .hero-grid a[href="#contact"] { padding:11px 16px !important; font-size:12px !important; gap:6px; }
+    .hero-grid a[href="#contact"] svg { width:13px; height:13px; }
+
+    /* Phone container */
+    .hero-phone { height:300px; }
     .hero-phone .float-card1 { display:none; }
     .hero-phone .float-card2 { display:none; }
 
     /* Phone BG blob */
-    .phone-bg { width:260px !important; height:260px !important; border-radius:32px !important; }
+    .phone-bg { width:180px !important; height:180px !important; border-radius:24px !important; }
 
     /* Phone device */
-    .phone-device { width:170px !important; height:330px !important; border-radius:26px !important; padding:2px !important; }
-    .phone-device-inner { border-radius:24px !important; }
+    .phone-device { width:120px !important; height:240px !important; border-radius:20px !important; padding:2px !important; }
+    .phone-device-inner { border-radius:18px !important; }
 
     /* Content inside phone */
-    .phone-hero-img { height:72px !important; }
-    .phone-items { gap:4px !important; }
-    .phone-item-img { width:30px !important; height:30px !important; border-radius:5px !important; }
-    .phone-item-plus { width:16px !important; height:16px !important; border-radius:4px !important; font-size:11px !important; }
+    .phone-hero-img { height:54px !important; }
+    .phone-items { gap:3px !important; padding:3px 8px !important; }
+    .phone-item-img { width:24px !important; height:24px !important; border-radius:4px !important; }
+    .phone-item-plus { width:13px !important; height:13px !important; border-radius:3px !important; font-size:10px !important; }
 
-    /* Floating QR — smaller, repositioned */
-    .float-qr { left:4px !important; top:24px !important; padding:10px !important; border-radius:14px !important; }
-    .float-qr svg { width:44px !important; height:44px !important; }
-    .scan-label { font-size:8px !important; margin-top:4px !important; }
+    /* Floating QR — small, left side */
+    .float-qr { left:0px !important; top:16px !important; padding:8px !important; border-radius:10px !important; }
+    .float-qr svg { width:32px !important; height:32px !important; }
+    .scan-label { font-size:7px !important; margin-top:3px !important; }
 
     .clients-section { padding:16px 20px; }
     .clients-inner { gap:10px; flex-direction:column; align-items:flex-start; }
